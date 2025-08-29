@@ -160,7 +160,7 @@
                     </div> <!-- section title -->
                     <div class="about-cont">
                         <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris. <br> <br> auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris</p>
-                        <a href="#" class="main-btn mt-55">Learn More</a>
+                        <a href="{{url('/about-us')}}" class="main-btn mt-55">Learn More</a>
                     </div>
                 </div> <!-- about cont -->
             </div> <!-- row -->
@@ -180,16 +180,16 @@
                 <div class="row no-gutters">
                     <div class="col-lg-6">
                         <div class="apply-cont apply-color-1">
-                            <h3>Apply for fall 2019</h3>
+                            <h3>Apply for Admission</h3>
                             <p>Gravida nibh vel velit auctor aliquetn sollicitudirem sem quibibendum auci elit cons equat ipsutis sem nibh id elituis sed odio sit amet nibh vulputate cursus equat ipsutis.</p>
-                            <a href="#" class="main-btn">Apply Now</a>
+                            <a href="{{url('/admission')}}" class="main-btn">Apply Now</a>
                         </div> <!-- apply cont -->
                     </div>
                     <div class="col-lg-6">
                         <div class="apply-cont apply-color-2">
-                            <h3>Apply for scholarship</h3>
+                            <h3>Apply for intership</h3>
                             <p>Gravida nibh vel velit auctor aliquetn sollicitudirem sem quibibendum auci elit cons equat ipsutis sem nibh id elituis sed odio sit amet nibh vulputate cursus equat ipsutis.</p>
-                            <a href="#" class="main-btn">Apply Now</a>
+                            <a href="{{url('/admission')}}" class="main-btn">Apply Now</a>
                         </div> <!-- apply cont -->
                     </div> 
                 </div>

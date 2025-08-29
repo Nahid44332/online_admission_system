@@ -1,138 +1,193 @@
 @extends('frontend.master')
 @section('content')
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-10">
+<div class="container mt-4">
+    <h3 class="text-center mb-4">🎓 Student Admission Form</h3>
 
-            <div class="card shadow-lg border-0 rounded-3">
-                <div class="card-header bg-primary text-white text-center py-3">
-                    <h3 class="mb-0">Application for Admission</h3>
-                    <small>Masters in <strong>Information Technology</strong></small>
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+    
+    <div class="card shadow-lg p-4 rounded-3">
+        <form action="#" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-row">
+                <!-- Full Name -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Full Name <span class="text-danger">*</span></label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter full name" required>
                 </div>
 
-                <div class="card-body p-4">
-                    <form action="#" method="POST">
-                        @csrf
+                <!-- Father Name -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Father's Name <span class="text-danger">*</span></label>
+                    <input type="text" name="father_name" class="form-control" placeholder="Enter father's name" required>
+                </div>
 
-                        {{-- Personal Information --}}
-                        <h5 class="text-primary mb-3 pb-2 border-bottom">Personal Information</h5>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Applicant's Name</label>
-                                <input type="text" class="form-control" placeholder="Enter full name">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Father's Name</label>
-                                <input type="text" class="form-control" placeholder="Enter father's name">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Mother's Name</label>
-                                <input type="text" class="form-control" placeholder="Enter mother's name">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Date of Birth</label>
-                                <div class="d-flex gap-2">
-                                    <select class="form-select"><option>Day</option></select>
-                                    <select class="form-select"><option>Month</option></select>
-                                    <select class="form-select"><option>Year</option></select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Mobile</label>
-                                <input type="text" class="form-control" placeholder="01XXXXXXXXX">
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">Gender</label>
-                                <select class="form-select">
-                                    <option>Select</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">Religion</label>
-                                <select class="form-select">
-                                    <option>Select</option>
-                                    <option>Islam</option>
-                                    <option>Hindu</option>
-                                    <option>Christian</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">Blood Group</label>
-                                <select class="form-select">
-                                    <option>Select</option>
-                                    <option>A+</option>
-                                    <option>O+</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">Nationality</label>
-                                <input type="text" value="Bangladeshi" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">National ID</label>
-                                <input type="text" class="form-control" placeholder="Enter NID (optional)">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control" placeholder="example@mail.com">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Present Address</label>
-                                <textarea class="form-control" rows="2"></textarea>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Permanent Address</label>
-                                <textarea class="form-control" rows="2"></textarea>
-                            </div>
-                        </div>
+                <!-- Mother Name -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Mother's Name <span class="text-danger">*</span></label>
+                    <input type="text" name="mother_name" class="form-control" placeholder="Enter mother's name" required>
+                </div>
 
-                        {{-- Academic Info --}}
-                        <h5 class="text-primary mt-4 mb-3 pb-2 border-bottom">Academic Qualifications</h5>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="card shadow-sm p-3">
-                                    <h6 class="fw-bold text-center mb-3">SSC or Equivalent</h6>
-                                    <input type="text" placeholder="Examination" class="form-control mb-2">
-                                    <input type="text" placeholder="Board" class="form-control mb-2">
-                                    <input type="text" placeholder="Roll No" class="form-control mb-2">
-                                    <input type="text" placeholder="Result" class="form-control mb-2">
-                                    <input type="text" placeholder="Group" class="form-control mb-2">
-                                    <input type="text" placeholder="Passing Year" class="form-control mb-2">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card shadow-sm p-3">
-                                    <h6 class="fw-bold text-center mb-3">HSC or Equivalent</h6>
-                                    <input type="text" placeholder="Examination" class="form-control mb-2">
-                                    <input type="text" placeholder="Board" class="form-control mb-2">
-                                    <input type="text" placeholder="Roll No" class="form-control mb-2">
-                                    <input type="text" placeholder="Result" class="form-control mb-2">
-                                    <input type="text" placeholder="Group" class="form-control mb-2">
-                                    <input type="text" placeholder="Passing Year" class="form-control mb-2">
-                                </div>
-                            </div>
-                        </div>
+                <!-- Date of Birth -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Date of Birth <span class="text-danger">*</span></label>
+                    <input type="date" name="dob" class="form-control" required>
+                </div>
 
-                        {{-- Declaration --}}
-                        <div class="form-check mt-4">
-                            <input class="form-check-input" type="checkbox" required>
-                            <label class="form-check-label">I hereby declare that all the above information is correct and I will abide by all the rules.</label>
-                        </div>
+                <!-- Gender -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Gender <span class="text-danger">*</span></label>
+                    <select name="gender" class="form-control" required>
+                        <option selected disabled>Choose...</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
 
-                        <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-success btn-lg px-5 shadow">
-                                Submit Application
-                            </button>
-                        </div>
+                <!-- Email -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Email Address</label>
+                    <input type="email" name="email" class="form-control" placeholder="Enter email">
+                </div>
 
-                    </form>
+                <!-- Phone -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Phone Number <span class="text-danger">*</span></label>
+                    <input type="text" name="phone" class="form-control" placeholder="Enter phone number" required>
+                </div>
+                {{-- Blood --}}
+                 <div class="form-group col-md-6 mb-3">
+                    <label>Blood Group</label>
+                    <select name="blood" class="form-control">
+                        <option selected disabled>Choose...</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>O+</option>
+                        <option>O-</option>
+                    </select>
+                </div>
+                <!-- Address -->
+                <div class="form-group col-md-12 mb-3">
+                    <label>Present Address <span class="text-danger">*</span></label>
+                    <textarea name="address" rows="2" class="form-control" placeholder="Enter present address" required></textarea>
+                </div>
+
+                <!-- Permanent Address -->
+                <div class="form-group col-md-12 mb-3">
+                    <label>Permanent Address</label>
+                    <textarea name="permanent_address" rows="2" class="form-control" placeholder="Enter permanent address"></textarea>
+                </div>
+
+                <!-- Nationality -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Nationality <span class="text-danger">*</span></label>
+                    <input type="text" name="nationality" class="form-control" value="Bangladeshi" required>
+                </div>
+
+                <!-- Religion -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Religion <span class="text-danger">*</span></label>
+                    <select name="religion" class="form-control" required>
+                        <option selected disabled>Choose...</option>
+                        <option>Islam</option>
+                        <option>Hindu</option>
+                        <option>Christian</option>
+                        <option>Buddhist</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <!-- SSC Result Section -->
+                <div class="col-md-12">
+                    <h5 class="mt-4 mb-2 text-primary">📘 SSC Result Information</h5>
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                    <label>SSC Passing Year <span class="text-danger">*</span></label>
+                    <input type="text" name="ssc_year" class="form-control" placeholder="e.g. 2020" required>
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                    <label>SSC Board <span class="text-danger">*</span></label>
+                    <select name="ssc_board" class="form-control" required>
+                        <option selected disabled>Choose...</option>
+                        <option>Dhaka</option>
+                        <option>Chittagong</option>
+                        <option>Rajshahi</option>
+                        <option>Khulna</option>
+                        <option>Barisal</option>
+                        <option>Sylhet</option>
+                        <option>Comilla</option>
+                        <option>Dinajpur</option>
+                        <option>Mymensingh</option>
+                        <option>Madrasah</option>
+                        <option>Technical</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                    <label>SSC GPA <span class="text-danger">*</span></label>
+                    <input type="text" name="ssc_gpa" class="form-control" placeholder="e.g. 4.80" required>
+                </div>
+
+                <!-- HSC Result Section -->
+                <div class="col-md-12">
+                    <h5 class="mt-4 mb-2 text-primary">📗 HSC Result Information</h5>
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                    <label>HSC Passing Year <span class="text-danger">*</span></label>
+                    <input type="text" name="hsc_year" class="form-control" placeholder="e.g. 2022" required>
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                    <label>HSC Board <span class="text-danger">*</span></label>
+                    <select name="hsc_board" class="form-control" required>
+                        <option selected disabled>Choose...</option>
+                        <option>Dhaka</option>
+                        <option>Chittagong</option>
+                        <option>Rajshahi</option>
+                        <option>Khulna</option>
+                        <option>Barisal</option>
+                        <option>Sylhet</option>
+                        <option>Comilla</option>
+                        <option>Dinajpur</option>
+                        <option>Mymensingh</option>
+                        <option>Madrasah</option>
+                        <option>Technical</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                    <label>HSC GPA <span class="text-danger">*</span></label>
+                    <input type="text" name="hsc_gpa" class="form-control" placeholder="e.g. 5.00" required>
+                </div>
+
+                <!-- Class Applied For -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Applying For Course</label>
+                    <select name="class" class="form-control">
+                        <option selected disabled>Select Course</option>
+                        <option>Basic Computer</option>
+                        <option>Web Development</option>
+                        <option>Graphics Design</option>
+                        <option>Script Writting</option>
+                        <option>Dropshipping</option>
+                        <option>E-Commerce Maintainis</option>
+                    </select>
+                </div>
+
+                <!-- Photo -->
+                <div class="form-group col-md-6 mb-3">
+                    <label>Upload Photo <span class="text-danger">*</span></label>
+                    <input type="file" name="photo" class="form-control" required>
+                </div>
+
+                 <input type="checkbox" id="all_correct" name="all_correct" value="1">I hereby declare that all the above information are correct and assure that I will abide by all the rules.
+                <!-- Submit -->
+                <div class="form-group col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary px-5 mt-3">Submit Application</button>
                 </div>
             </div>
-
-        </div>
+        </form>
     </div>
 </div>
 @endsection
