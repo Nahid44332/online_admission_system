@@ -3,12 +3,8 @@
 <div class="container mt-4">
     <h3 class="text-center mb-4">🎓 Student Admission Form</h3>
 
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-    
     <div class="card shadow-lg p-4 rounded-3">
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{url('/admission/store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-row">
                 <!-- Full Name -->
@@ -107,7 +103,7 @@
                 </div>
                 <div class="form-group col-md-4 mb-3">
                     <label>SSC Passing Year <span class="text-danger">*</span></label>
-                    <input type="text" name="ssc_year" class="form-control" placeholder="e.g. 2020" required>
+                    <input type="text" name="ssc_passing_year" class="form-control" placeholder="e.g. 2020" required>
                 </div>
                 <div class="form-group col-md-4 mb-3">
                     <label>SSC Board <span class="text-danger">*</span></label>
@@ -128,7 +124,7 @@
                 </div>
                 <div class="form-group col-md-4 mb-3">
                     <label>SSC GPA <span class="text-danger">*</span></label>
-                    <input type="text" name="ssc_gpa" class="form-control" placeholder="e.g. 4.80" required>
+                    <input type="text" name="ssc_result" class="form-control" placeholder="e.g. 4.80" required>
                 </div>
 
                 <!-- HSC Result Section -->
@@ -137,7 +133,7 @@
                 </div>
                 <div class="form-group col-md-4 mb-3">
                     <label>HSC Passing Year <span class="text-danger">*</span></label>
-                    <input type="text" name="hsc_year" class="form-control" placeholder="e.g. 2022" required>
+                    <input type="text" name="hsc_passing_year" class="form-control" placeholder="e.g. 2022" required>
                 </div>
                 <div class="form-group col-md-4 mb-3">
                     <label>HSC Board <span class="text-danger">*</span></label>
@@ -158,7 +154,7 @@
                 </div>
                 <div class="form-group col-md-4 mb-3">
                     <label>HSC GPA <span class="text-danger">*</span></label>
-                    <input type="text" name="hsc_gpa" class="form-control" placeholder="e.g. 5.00" required>
+                    <input type="text" name="hsc_result" class="form-control" placeholder="e.g. 5.00" required>
                 </div>
 
                 <!-- Class Applied For -->
@@ -168,6 +164,7 @@
                         <option selected disabled>Select Course</option>
                         <option>Basic Computer</option>
                         <option>Web Development</option>
+                        <option>Digital Marketing </option>
                         <option>Graphics Design</option>
                         <option>Script Writting</option>
                         <option>Dropshipping</option>
@@ -178,7 +175,7 @@
                 <!-- Photo -->
                 <div class="form-group col-md-6 mb-3">
                     <label>Upload Photo <span class="text-danger">*</span></label>
-                    <input type="file" name="photo" class="form-control" required>
+                    <input type="file" name="image" class="form-control" required>
                 </div>
 
                  <input type="checkbox" id="all_correct" name="all_correct" value="1">I hereby declare that all the above information are correct and assure that I will abide by all the rules.

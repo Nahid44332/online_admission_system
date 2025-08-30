@@ -29,5 +29,6 @@
     </div>
     <!-- container-scroller -->
    @include('backend.include.script')
+   @stack('script')
   </body>
 </html>

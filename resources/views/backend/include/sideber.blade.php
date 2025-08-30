@@ -29,7 +29,7 @@
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/buttons.html">Student</a>
+                    <a class="nav-link" href="{{url('/admin/student/list')}}">Student</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="pages/ui-features/dropdowns.html">Add Now</a>

@@ -19,6 +19,7 @@ Route::get('/teachers', [FrontendController::class, 'teachers']);
 Route::get('/contact-us', [FrontendController::class, 'contactUs']);
 Route::get('/course-details', [FrontendController::class, 'courseDetails']);
 Route::get('/admission', [FrontendController::class, 'admission']);
+Route::post('/admission/store', [FrontendController::class, 'admissionStore']);
 
 // Auth Route
 Route::get('/admin/login', [adminAuthController::class, 'adminLogin']);
@@ -26,3 +27,6 @@ Route::get('/admin/logout', [adminAuthController::class, 'adminLogOut']);
 Auth::routes();
 
 Route::get('/admin/dashboard', [adminController::class, 'adminDashboard']);
+Route::get('/admin/student/list', [adminController::class, 'studentList']);
+Route::post('/admin/student/status/{id}', [adminController::class, 'updateStatus']);
+Route::post('/admin/student/delete/{id}', [adminController::class, 'deleteStudent']);
