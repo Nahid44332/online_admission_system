@@ -29,4 +29,5 @@ Auth::routes();
 Route::get('/admin/dashboard', [adminController::class, 'adminDashboard']);
 Route::get('/admin/student/list', [adminController::class, 'studentList']);
 Route::post('/admin/student/status/{id}', [adminController::class, 'updateStatus']);
-Route::post('/admin/student/delete/{id}', [adminController::class, 'deleteStudent']);
+Route::get('/admin/student/delete/{id}', [adminController::class, 'deleteStudent']);
+Route::get('/admin/student/edit/{id}', [adminController::class, 'editStudent']);

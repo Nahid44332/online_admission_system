@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/admin/dashboard')}}">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Student List</li>
                     </ol>
                 </div>
@@ -38,7 +38,7 @@
                 <tr>
                     <td>{{ $loop->index + 1 }}</td>
                     <td class="py-1">
-                        <img src="{{ asset('backend/images/students/' . $student->image) }}" alt="{{ $student->name }}"
+                        <img src="{{asset('backend/images/students/'.$student->image) }}" alt="{{ $student->name }}"
                             height="80" width="80" />
                     </td>
                     <td>{{ $student->name }}</td>
@@ -57,7 +57,7 @@
                         </form>
                     </td>
                     <td>
-                        <a href="#" class="btn btn-primary">Edit</a>
+                        <a href="{{url('/admin/student/edit/'.$student->id)}}" class="btn btn-primary">Edit</a>
                         <a href="{{url('/admin/student/delete/'.$student->id)}}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>

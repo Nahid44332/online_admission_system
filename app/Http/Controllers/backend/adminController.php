@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Return_;
 
 class adminController extends Controller
 {
@@ -42,6 +43,19 @@ class adminController extends Controller
     public function deleteStudent($id)
     {
         $students = Student::with('educations')->find($id);
-        dd($students);
+        
+        if($students->image && file_exists('backend/images/students/'.$students->image)){
+            unlink('backend/images/students/'.$students->image);
+        }
+
+        $students->delete();
+        toastr()->success('Student ID'. $students->id,'Deleted Successfully!');
+        return redirect()->back();
+    }
+
+    public function editStudent($id)
+    {
+        $students = Student::with('educations')->find($id);
+        return view('backend.edit-student', compact('students'));
     }
 }
