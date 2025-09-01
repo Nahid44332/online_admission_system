@@ -31,3 +31,4 @@ Route::get('/admin/student/list', [adminController::class, 'studentList']);
 Route::post('/admin/student/status/{id}', [adminController::class, 'updateStatus']);
 Route::get('/admin/student/delete/{id}', [adminController::class, 'deleteStudent']);
 Route::get('/admin/student/edit/{id}', [adminController::class, 'editStudent']);
+Route::post('/admin/student/update/{id}', [adminController::class, 'updateStudent']);

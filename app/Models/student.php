@@ -12,7 +12,7 @@ class Student extends Model
     protected $guarded = [];
 
     // এক Student-এর অনেক Education
-    public function educations()
+    public function education()
     {
         return $this->hasMany(Education::class, 'student_id', 'id');
     }
