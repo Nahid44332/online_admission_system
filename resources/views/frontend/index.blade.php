@@ -237,7 +237,7 @@
                                     <a href="#"><img src="{{asset('frontend/images/course/teacher/t-1.jpg')}}" alt="teacher"></a>
                                 </div>
                                 <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
+                                    <a href="{{url('/teacher-info')}}"><h6>Mark anthem</h6></a>
                                 </div>
                                 <div class="admin">
                                     <ul>
@@ -274,7 +274,7 @@
                                     <a href="#"><img src="{{asset('frontend/images/course/teacher/t-2.jpg')}}" alt="teacher"></a>
                                 </div>
                                 <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
+                                    <a href="{{url('/teacher-info')}}"><h6>Mark anthem</h6></a>
                                 </div>
                                 <div class="admin">
                                     <ul>
@@ -311,7 +311,7 @@
                                     <a href="#"><img src="{{asset('frontend/images/course/teacher/t-3.jpg')}}" alt="teacher"></a>
                                 </div>
                                 <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
+                                    <a href="{{url('/teacher-info')}}"><h6>Mark anthem</h6></a>
                                 </div>
                                 <div class="admin">
                                     <ul>
@@ -348,7 +348,7 @@
                                     <a href="#"><img src="{{asset('frontend/images/course/teacher/t-4.jpg')}}" alt="teacher"></a>
                                 </div>
                                 <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
+                                    <a href="{{url('/teacher-info')}}"><h6>Mark anthem</h6></a>
                                 </div>
                                 <div class="admin">
                                     <ul>
@@ -385,7 +385,7 @@
                                     <a href="#"><img src="{{asset('frontend/images/course/teacher/t-5.jpg')}}" alt="teacher"></a>
                                 </div>
                                 <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
+                                    <a href="{{url('/teacher-info')}}"><h6>Mark anthem</h6></a>
                                 </div>
                                 <div class="admin">
                                     <ul>
@@ -427,7 +427,7 @@
                                         <img src="{{asset('frontend/images/teachers/t-1.jpg')}}" alt="Teachers">
                                     </div>
                                     <div class="cont">
-                                        <a href="teachers-singel.html"><h6>Mark alen</h6></a>
+                                        <a href="{{url('/teacher-info')}}"><h6>Mark alen</h6></a>
                                         <span>Vice chencelor</span>
                                     </div>
                                 </div> <!-- singel teachers -->
@@ -438,7 +438,7 @@
                                         <img src="{{asset('frontend/images/teachers/t-2.jpg')}}" alt="Teachers">
                                     </div>
                                     <div class="cont">
-                                        <a href="teachers-singel.html"><h6>David card</h6></a>
+                                        <a href="{{url('/teacher-info')}}"><h6>David card</h6></a>
                                         <span>Pro chencelor</span>
                                     </div>
                                 </div> <!-- singel teachers -->
@@ -449,7 +449,7 @@
                                         <img src="{{asset('frontend/images/teachers/t-3.jpg')}}" alt="Teachers">
                                     </div>
                                     <div class="cont">
-                                        <a href="teachers-singel.html"><h6>Rebeka alig</h6></a>
+                                        <a href="{{url('/teacher-info')}}"><h6>Rebeka alig</h6></a>
                                         <span>Pro chencelor</span>
                                     </div>
                                 </div> <!-- singel teachers -->
@@ -460,7 +460,7 @@
                                         <img src="{{asset('frontend/images/teachers/t-4.jpg')}}" alt="Teachers">
                                     </div>
                                     <div class="cont">
-                                        <a href="teachers-singel.html"><h6>Hanna bein</h6></a>
+                                        <a href="{{url('/teacher-info')}}"><h6>Hanna bein</h6></a>
                                         <span>Aerobics head</span>
                                     </div>
                                 </div> <!-- singel teachers -->

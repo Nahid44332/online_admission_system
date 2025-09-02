@@ -14,3 +14,5 @@
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.png')}}"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
