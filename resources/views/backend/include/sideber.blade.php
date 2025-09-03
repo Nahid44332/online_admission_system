@@ -15,7 +15,7 @@
               </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="{{ url('/') }}">
+              <a class="nav-link" href="{{ url('/admin/dashboard') }}">
                   <span class="menu-title">Dashboard</span>
                   <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -52,6 +52,12 @@
                       </li>
                   </ul>
               </div>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{url('/admin/course')}}">
+                  <span class="menu-title">Course</span>
+                  <i class="mdi mdi-book menu-icon"></i>
+              </a>
           </li>
       </ul>
   </nav>

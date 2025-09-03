@@ -104,20 +104,7 @@
                     <div class="form-group">
                         <label for="course">Course</label>
                         <select class="form-select" name="course" id="course">
-                            <option value="Basic Computer" @if ($students->course == 'Basic Computer') selected @endif>Basic Computer
-                            </option>
-                            <option value="Web Development" @if ($students->course == 'Web Development') selected @endif>Web
-                                Development</option>
-                            <option value="Digital Marketing" @if ($students->course == 'Digital Marketing') selected @endif>Digital
-                                Marketing</option>
-                            <option value="Graphics Design" @if ($students->course == 'Graphics Design') selected @endif>Graphics
-                                Design</option>
-                            <option value="Script Writting" @if ($students->course == 'Script Writting') selected @endif>Script
-                                Writting</option>
-                            <option value="Dropshipping" @if ($students->course == 'Dropshipping') selected @endif>Dropshipping
-                            </option>
-                            <option value="E-Commerce Maintainis" @if ($students->course == 'E-Commerce Maintainis') selected @endif>
-                                E-Commerce Maintainis</option>
+                            <option value="Web Development" @if ($students->course == 'Web Development') selected @endif>Web Development</option>
                         </select>
                     </div>
                     <div class="form-group">

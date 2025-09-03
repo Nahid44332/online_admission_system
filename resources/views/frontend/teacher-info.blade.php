@@ -1,23 +1,6 @@
 @extends('frontend.master')
 @section('content')
- <!--====== SEARCH BOX PART START ======-->
-
-    <div class="search-box">
-        <div class="serach-form">
-            <div class="closebtn">
-                <span></span>
-                <span></span>
-            </div>
-            <form action="#">
-                <input type="text" placeholder="Search by keyword">
-                <button><i class="fa fa-search"></i></button>
-            </form>
-        </div> <!-- serach form -->
-    </div>
-
-    <!--====== SEARCH BOX PART ENDS ======-->
-
-    <!--====== PAGE BANNER PART START ======-->
+<!--====== PAGE BANNER PART START ======-->
 
     <section id="page-banner" class="pt-105 pb-130 bg_cover" data-overlay="8" style="background-image: url({{asset('frontend/images/page-banner-3.jpg')}})">
         <div class="container">
@@ -27,7 +10,7 @@
                         <h2>Teachers</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Teachers</li>
                             </ol>
                         </nav>
@@ -47,22 +30,22 @@
                 <div class="col-lg-4 col-md-8">
                     <div class="teachers-left mt-50">
                         <div class="hero">
-                            <img src="{{asset('frontend/images/teachers/t-1.jpg')}}" alt="Teachers">
+                            <img src="{{asset('backend/images/teachers/'.$teachers->profile_image)}}" alt="Teachers" height="300" width="250">
                         </div>
                         <div class="name">
-                            <h6>Mark alen</h6>
-                            <span>Vice chencelor</span>
+                            <h6>{{$teachers->name}}</h6>
+                            <span>{{$teachers->designation}}</span>
                         </div>
                         <div class="social">
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                                <li><a href="{{$teachers->facebook_link}}"><i class="fa fa-facebook-square"></i></a></li>
+                                <li><a href="{{$teachers->twitter_link}}"><i class="fa fa-twitter-square"></i></a></li>
+                                <li><a href="{{$teachers->google_link}}"><i class="fa fa-google-plus-square"></i></a></li>
+                                <li><a href="{{$teachers->linkedin_link}}"><i class="fa fa-linkedin-square"></i></a></li>
                             </ul>
                         </div>
                         <div class="description">
-                            <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate..</p>
+                            <p>{{$teachers->short_description}}</p>
                         </div>
                     </div> <!-- teachers left -->
                 </div>
@@ -84,15 +67,15 @@
                                 <div class="dashboard-cont">
                                     <div class="singel-dashboard pt-40">
                                         <h5>About</h5>
-                                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus .</p>
+                                        <p>{{$teachers->about}}</p>
                                     </div> <!-- singel dashboard -->
                                     <div class="singel-dashboard pt-40">
                                         <h5>Acchivments</h5>
-                                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus .</p>
+                                        <p>{{$teachers->achievements}}</p>
                                     </div> <!-- singel dashboard -->
                                     <div class="singel-dashboard pt-40">
                                         <h5>My Objective</h5>
-                                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus .</p>
+                                        <p>{{$teachers->objective}}</p>
                                     </div> <!-- singel dashboard -->
                                 </div> <!-- dashboard cont -->
                             </div>
@@ -103,7 +86,7 @@
                                             <div class="singel-course mt-30">
                                                 <div class="thum">
                                                     <div class="image">
-                                                        <img src="{{asset('frontend/images/course/cu-2.jpg')}}" alt="Course">
+                                                        <img src="images/course/cu-2.jpg" alt="Course">
                                                     </div>
                                                     <div class="price">
                                                         <span>$10</span>
@@ -121,7 +104,7 @@
                                                     <a href="#"><h4>Learn basis javascirpt from start for beginner</h4></a>
                                                     <div class="course-teacher">
                                                         <div class="thum">
-                                                            <a href="#"><img src="{{asset('frontend/images/course/teacher/t-2.jpg')}}" alt="teacher"></a>
+                                                            <a href="#"><img src="images/course/teacher/t-2.jpg" alt="teacher"></a>
                                                         </div>
                                                         <div class="name">
                                                             <a href="#"><h6>Mark anthem</h6></a>
@@ -140,7 +123,7 @@
                                             <div class="singel-course mt-30">
                                                 <div class="thum">
                                                     <div class="image">
-                                                        <img src="{{asset('frontend/images/course/cu-3.jpg')}}" alt="Course">
+                                                        <img src="images/course/cu-3.jpg" alt="Course">
                                                     </div>
                                                     <div class="price">
                                                         <span>$30</span>
@@ -158,7 +141,7 @@
                                                     <a href="#"><h4>Learn basis javascirpt from start for beginner</h4></a>
                                                     <div class="course-teacher">
                                                         <div class="thum">
-                                                            <a href="#"><img src="{{asset('frontend/images/course/teacher/t-2.jpg')}}" alt="teacher"></a>
+                                                            <a href="#"><img src="images/course/teacher/t-2.jpg" alt="teacher"></a>
                                                         </div>
                                                         <div class="name">
                                                             <a href="#"><h6>Mark anthem</h6></a>
@@ -186,7 +169,7 @@
                                            <div class="singel-reviews">
                                                 <div class="reviews-author">
                                                     <div class="author-thum">
-                                                        <img src="{{asset('frontend/images/review/r-1.jpg')}}" alt="Reviews">
+                                                        <img src="images/review/r-1.jpg" alt="Reviews">
                                                     </div>
                                                     <div class="author-name">
                                                         <h6>Bobby Aktar</h6>
@@ -212,7 +195,7 @@
                                            <div class="singel-reviews">
                                                 <div class="reviews-author">
                                                     <div class="author-thum">
-                                                        <img src="{{asset('frontend/images/review/r-2.jpg')}}" alt="Reviews">
+                                                        <img src="images/review/r-2.jpg" alt="Reviews">
                                                     </div>
                                                     <div class="author-name">
                                                         <h6>Humayun Ahmed</h6>
@@ -238,7 +221,7 @@
                                            <div class="singel-reviews">
                                                 <div class="reviews-author">
                                                     <div class="author-thum">
-                                                        <img src="{{asset('frontend/images/review/r-3.jpg')}}" alt="Reviews">
+                                                        <img src="images/review/r-3.jpg" alt="Reviews">
                                                     </div>
                                                     <div class="author-name">
                                                         <h6>Tania Aktar</h6>

@@ -24,98 +24,25 @@
    
     <!--====== TEACHERS PART START ======-->
     
-    <section id="teachers-page" class="pt-90 pb-120 gray-bg">
-        <div class="container">
-           <div class="row">
+  <section id="teachers-page" class="pt-90 pb-120 gray-bg">
+    <div class="container">
+       <div class="row">
+          @foreach ($teachers as $teacher)
                <div class="col-lg-3 col-sm-6">
                    <div class="singel-teachers mt-30 text-center">
                         <div class="image">
-                            <img src="{{asset('frontend/images/teachers/t-1.jpg')}}" alt="Teachers">
+                            <img src="{{asset('backend/images/teachers/'.$teacher->profile_image)}}" alt="Teachers" height="250" width="150">
                         </div>
                         <div class="cont">
-                            <a href="{{url('/teacher-info')}}"><h6>MarkMark alen</h6></a>
-                            <span>Vice chencelor</span>
+                            <a href="{{url('teacher-info/'.$teacher->id)}}">
+                                <h6>{{ $teacher->name }}</h6>
+                            </a>
+                            <span>{{ $teacher->designation }}</span>
                         </div>
                     </div> <!-- singel teachers -->
                </div>
-               <div class="col-lg-3 col-sm-6">
-                   <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{{asset('frontend/images/teachers/t-2.jpg')}}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="{{url('/teacher-info')}}"><h6>David card </h6></a>
-                            <span>Pro chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                   <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{{asset('frontend/images/teachers/t-3.jpg')}}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="{{url('/teacher-info')}}"><h6>Rebeka alig</h6></a>
-                            <span>Pro chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                   <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{{asset('frontend/images/teachers/t-4.jpg')}}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="{{url('/teacher-info')}}"><h6>Hanna bein</h6></a>
-                            <span>Aerobics head</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                   <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{{asset('frontend/images/teachers/t-5.jpg')}}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="{{url('/teacher-info')}}"><h6>David card </h6></a>
-                            <span>Pro chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                   <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{{asset('frontend/images/teachers/t-6.jpg')}}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="{{url('/teacher-info')}}"><h6>Mark alen</h6></a>
-                            <span>Vice chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                   <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{{asset('frontend/images/teachers/t-7.jpg')}}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="{{url('/teacher-info')}}"><h6>Rebeka alig</h6></a>
-                            <span>Pro chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-               </div>
-               <div class="col-lg-3 col-sm-6">
-                   <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{{asset('frontend/images/teachers/t-8.jpg')}}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="{{url('/teacher-info')}}"><h6>Hanna bein</h6></a>
-                            <span>Aerobics head</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-               </div>
-           </div>
-        </div> <!-- container -->
-    </section>
+          @endforeach
+       </div>
+    </div> <!-- container -->
+</section>
 @endsection

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminAuthController;
 use App\Http\Controllers\backend\adminController;
+use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\teachersController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,7 @@ Route::get('/', [FrontendController::class, 'index']);
 Route::get('/about-us', [FrontendController::class, 'aboutUs']);
 Route::get('/courses', [FrontendController::class, 'courses']);
 Route::get('/teachers', [FrontendController::class, 'teachers']);
-Route::get('/teacher-info', [FrontendController::class, 'teacherInfo']);
+Route::get('/teacher-info/{id}', [FrontendController::class, 'teacherInfo']);
 Route::get('/contact-us', [FrontendController::class, 'contactUs']);
 Route::get('/course-details', [FrontendController::class, 'courseDetails']);
 Route::get('/admission', [FrontendController::class, 'admission']);
@@ -41,3 +42,12 @@ Route::post('/admin/student/update/{id}', [adminController::class, 'updateStuden
 Route::get('/admin/teacher/add', [teachersController::class, 'addTeacher']);
 Route::post('/admin/teacher/store', [teachersController::class, 'teacherStore']);
 Route::get('/admin/teacher/list', [teachersController::class, 'teacherList']);
+Route::get('/admin/teacher/view/{id}', [teachersController::class, 'teacherView']);
+Route::get('/admin/teacher/delete/{id}', [teachersController::class, 'teacherDelete']);
+Route::get('/admin/teacher/edit/{id}', [teachersController::class, 'teacherEdit']);
+Route::post('/admin/teacher/update/{id}', [teachersController::class, 'updateTeacher']);
+
+//Course
+Route::get('/admin/course', [CourseController::class, 'course']);
+Route::get('/admin/course/create', [CourseController::class, 'courseCreate']);
+Route::post('/admin/course/store', [CourseController::class, 'courseStore']);

@@ -17,6 +17,11 @@
       </div>
 
       <div class="form-group mb-3">
+        <label>phone</label>
+        <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone">
+      </div>
+
+      <div class="form-group mb-3">
         <label>Profile Image</label>
         <input type="file" name="profile_image" class="form-control">
       </div>

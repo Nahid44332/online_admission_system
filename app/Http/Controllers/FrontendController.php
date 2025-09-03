@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Education;
 use App\Models\Student;
+use App\Models\Teacher;
 use Illuminate\Http\Request; // ✅ Laravel এর Request
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        $teachers = Teacher::get();
+        return view('frontend.index', compact('teachers'));
     }
     public function aboutUs()
     {
@@ -18,15 +21,19 @@ class FrontendController extends Controller
     }
     public function courses()
     {
-        return view('frontend.courses');
+        $courses = Course::with('Teacher')->get();
+        $student = Student::with('Course')->count();
+        return view('frontend.courses', compact('courses', 'student'));
     }
     public function teachers()
     {
-        return view('frontend.teachers');
+        $teachers = Teacher::get();
+        return view('frontend.teachers', compact('teachers'));
     }
-    public function teacherInfo()
+    public function teacherInfo($id)
     {
-        return view('backend.teacher-info');
+        $teachers = Teacher::find($id);
+        return view('frontend.teacher-info', compact('teachers'));
     }
     public function contactUs()
     {
@@ -38,7 +45,8 @@ class FrontendController extends Controller
     }
     public function admission()
     {
-        return view('frontend.admission');
+        $courses = Course::get();
+        return view('frontend.admission', compact('courses'));
     }
     public function admissionStore(Request $request)
     {
@@ -55,7 +63,7 @@ class FrontendController extends Controller
         $student->blood             = $request->blood;
         $student->nationality       = $request->nationality;
         $student->religion          = $request->religion;
-        $student->course            = $request->class; // ফর্মের 'class' ফিল্ড course হিসেবে সেভ
+        $student->course_id         = $request->course_id;
 
         // --- Image Upload ---
         if(isset($request->image)){

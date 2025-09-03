@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('designation');
+            $table->string('phone');
             $table->string('profile_image')->nullable();
             $table->longText('about');
             $table->longText('achievements');

@@ -22,7 +22,7 @@ class adminController extends Controller
 
     public function studentList()
     {
-        $students = Student::with('education')->get();
+        $students = Student::with('education', 'course')->get();
         return view('backend.student-list', compact('students'));
     }
 

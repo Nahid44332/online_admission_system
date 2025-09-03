@@ -27,7 +27,7 @@
                 <th> First name</th>
                 <th> Father Name</th>
                 <th> Mother Name</th>
-                <th> Date Of Birth</th>
+                <th> Course</th>
                 <th> Admission Date</th>
                 <th> Status</th>
                 <th> Action</th>

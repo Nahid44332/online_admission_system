@@ -160,15 +160,11 @@
                 <!-- Class Applied For -->
                 <div class="form-group col-md-6 mb-3">
                     <label>Applying For Course</label>
-                    <select name="class" class="form-control">
+                    <select name="course_id" class="form-control">
                         <option selected disabled>Select Course</option>
-                        <option>Basic Computer</option>
-                        <option>Web Development</option>
-                        <option>Digital Marketing </option>
-                        <option>Graphics Design</option>
-                        <option>Script Writting</option>
-                        <option>Dropshipping</option>
-                        <option>E-Commerce Maintainis</option>
+                        @foreach ($courses as $course)
+                            <option value="{{$course->id}}">{{$course->title}}</option>
+                        @endforeach
                     </select>
                 </div>
 
