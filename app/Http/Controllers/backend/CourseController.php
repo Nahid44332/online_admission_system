@@ -51,4 +51,11 @@ class CourseController extends Controller
         toastr()->success('New Course Added Successfully');
         return redirect('/admin/course'); 
     }
+
+   public function courseEdit($id)
+   {
+        $teachers = Teacher::get();
+        $courses = Course::find($id);
+        return view('backend.course.edit-course', compact('teachers', 'courses'));
+   }
 }

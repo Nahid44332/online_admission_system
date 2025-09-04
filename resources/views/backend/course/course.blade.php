@@ -45,8 +45,8 @@
                 <td>{{$course->teacher->name}}</td>
                 <td>{{$course->course_fee}}</td>
                 <td>
-                    <a href="#" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen"></i></a>
-                    <a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure delete teacher?')"><i class="fa-solid fa-trash"></i></a>                
+                    <a href="{{url('/admin/course/edit/'.$course->id)}}" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen"></i></a>
+                    <a href="{{url('/admin/course/delete/'.$course->id)}}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure delete teacher?')"><i class="fa-solid fa-trash"></i></a>                
                 </td>
             </tr>
            @endforeach

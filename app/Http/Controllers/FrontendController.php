@@ -13,7 +13,8 @@ class FrontendController extends Controller
     public function index()
     {
         $teachers = Teacher::get();
-        return view('frontend.index', compact('teachers'));
+        $courses = Course::with('Teacher')->get();
+        return view('frontend.index', compact('teachers', 'courses'));
     }
     public function aboutUs()
     {
@@ -21,9 +22,10 @@ class FrontendController extends Controller
     }
     public function courses()
     {
-        $courses = Course::with('Teacher')->get();
+        $courses = Course::get();
+        $teachers = Teacher::get();
         $student = Student::with('Course')->count();
-        return view('frontend.courses', compact('courses', 'student'));
+        return view('frontend.courses', compact('courses', 'student', 'teachers'));
     }
     public function teachers()
     {
@@ -33,15 +35,17 @@ class FrontendController extends Controller
     public function teacherInfo($id)
     {
         $teachers = Teacher::find($id);
-        return view('frontend.teacher-info', compact('teachers'));
+        $courses = Course::find($id);
+        return view('frontend.teacher-info', compact('teachers', 'courses'));
     }
     public function contactUs()
     {
         return view('frontend.contact-us');
     }
-    public function courseDetails()
+    public function courseDetails($id)
     {
-        return view('frontend.course-details');
+        $course = Course::with('teacher')->find($id);
+        return view('frontend.course-details', compact('course'));
     }
     public function admission()
     {

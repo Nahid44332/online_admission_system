@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('teacher_id')->nullable(); // ফরেন কী
+            $table->unsignedBigInteger('teacher_id'); // ফরেন কী
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('course_fee');
-            $table->string('duration')->nullable();
-            $table->text('description')->nullable();
-            $table->longText('summery')->nullable();
-            $table->longText('requrements')->nullable();
-            $table->string('thumbnail')->nullable();
+            $table->string('duration');
+            $table->text('description');
+            $table->longText('summery');
+            $table->longText('requrements');
+            $table->string('thumbnail');
             $table->timestamps();
         });
     }

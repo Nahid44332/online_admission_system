@@ -7,12 +7,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="page-banner-cont">
-                        <h2>Learn basic javascript</h2>
+                        <h2>{{$course->title}}</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                                 <li class="breadcrumb-item"><a href="{{url('/courses')}}">Courses</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Learn basic javasript</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{$course->title}}</li>
                             </ol>
                         </nav>
                     </div>  <!-- page banner cont -->
@@ -31,18 +31,20 @@
                 <div class="col-lg-8">
                     <div class="corses-singel-left mt-30">
                         <div class="title">
-                            <h3>Learn basis javascirpt from start for beginner</h3>
+                            <h3>{{$course->title}}</h3>
                         </div> <!-- title -->
                         <div class="course-terms">
                             <ul>
                                 <li>
                                     <div class="teacher-name">
                                         <div class="thum">
-                                            <img src="{{asset('frontend/images/course/teacher/t-1.jpg')}}" alt="Teacher">
+                                            <img src="{{asset('backend/images/teachers/'.$course->teacher->profile_image)}}" 
+                                                alt="Teacher" 
+                                                    style="width:50px; height:50px; object-fit:cover; border-radius:50%;">
                                         </div>
                                         <div class="name">
                                             <span>Teacher</span>
-                                            <h6>Mark anthem</h6>
+                                            <h6>{{$course->teacher->name}}</h6>
                                         </div>
                                     </div>
                                 </li>
@@ -63,7 +65,7 @@
                         </div> <!-- course terms -->
                         
                         <div class="corses-singel-image pt-50">
-                            <img src="{{asset('frontend/images/course/cu-1.jpg')}}" alt="Courses">
+                            <img src="{{asset('backend/images/courses/'.$course->thumbnail)}}" alt="Courses">
                         </div> <!-- corses singel image -->
                         
                         <div class="corses-tab mt-30">
@@ -87,11 +89,11 @@
                                     <div class="overview-description">
                                         <div class="singel-description pt-40">
                                             <h6>Course Summery</h6>
-                                            <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus .</p>
+                                            <p>{{$course->summery}}</p>
                                         </div>
                                         <div class="singel-description pt-40">
                                             <h6>Requrements</h6>
-                                            <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus .</p>
+                                            <p>{{$course->requrements}}</p>
                                         </div>
                                     </div> <!-- overview description -->
                                 </div>

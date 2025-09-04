@@ -44,7 +44,7 @@
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->father_name }}</td>
                     <td>{{ $student->mother_name }}</td>
-                    <td>{{ $student->dob }}</td>
+                    <td>{{ $student->course->title}}</td>
                     <td>{{ $student->created_at }}</td>
                     <td>
                         <form action="{{url('/admin/student/status/'.$student->id)}}" method="POST">
@@ -57,8 +57,8 @@
                         </form>
                     </td>
                     <td>
-                        <a href="{{url('/admin/student/edit/'.$student->id)}}" class="btn btn-primary">Edit</a>
-                        <a href="{{url('/admin/student/delete/'.$student->id)}}" class="btn btn-danger">Delete</a>
+                        <a href="{{url('/admin/student/edit/'.$student->id)}}" class="btn btn-primary"><i class="fa-solid fa-pen"></i></a>
+                        <a href="{{url('/admin/student/delete/'.$student->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure delete Student?')"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             @endforeach

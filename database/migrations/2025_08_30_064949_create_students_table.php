@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('blood')->nullable();
             $table->string('nationality');
             $table->string('religion');
-            $table->unsignedBigInteger('course_id')->nullable();
+            $table->unsignedBigInteger('course_id');
             $table->integer('status')->default(0);
             $table->string('image')->nullable();
             $table->longText('present_address');

@@ -11,7 +11,7 @@ class Course extends Model
 
     protected $guarded = [];
 
-    public function teacher()
+     public function teacher()
     {
         return $this->belongsTo(Teacher::class, 'teacher_id', 'id');
     }

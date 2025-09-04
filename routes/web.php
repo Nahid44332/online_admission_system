@@ -20,7 +20,7 @@ Route::get('/courses', [FrontendController::class, 'courses']);
 Route::get('/teachers', [FrontendController::class, 'teachers']);
 Route::get('/teacher-info/{id}', [FrontendController::class, 'teacherInfo']);
 Route::get('/contact-us', [FrontendController::class, 'contactUs']);
-Route::get('/course-details', [FrontendController::class, 'courseDetails']);
+Route::get('/course-details/{id}', [FrontendController::class, 'courseDetails']);
 Route::get('/admission', [FrontendController::class, 'admission']);
 Route::post('/admission/store', [FrontendController::class, 'admissionStore']);
 
@@ -51,3 +51,6 @@ Route::post('/admin/teacher/update/{id}', [teachersController::class, 'updateTea
 Route::get('/admin/course', [CourseController::class, 'course']);
 Route::get('/admin/course/create', [CourseController::class, 'courseCreate']);
 Route::post('/admin/course/store', [CourseController::class, 'courseStore']);
+Route::get('/admin/course/delete/{id}', [CourseController::class, 'courseDelete']);
+Route::get('/admin/course/edit/{id}', [CourseController::class, 'courseEdit']);
+Route::get('/admin/course/update/{id}', [CourseController::class, 'courseUpdate']);
