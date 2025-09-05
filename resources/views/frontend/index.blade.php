@@ -217,7 +217,7 @@
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
-                                <img src="{{asset('backend/images/courses/'.$course->thumbnail)}}" alt="Course">
+                                <a href="{{url('course-details/'.$course->id)}}"><img src="{{asset('backend/images/courses/'.$course->thumbnail)}}" alt="Course"></a>
                             </div>
                             <div class="price">
                                 <span>{{$course->course_fee}}</span>
@@ -235,7 +235,9 @@
                             <a href="{{url('course-details/'.$course->id)}}"><h4>{{$course->title}}</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
-                                    <a href="{{url('teacher-info/'.$course->teacher->id)}}"><img src="{{asset('backend/images/teachers/'.$course->teacher->profile_image)}}" alt="teacher"></a>
+                                    <a href="{{url('teacher-info/'.$course->teacher->id)}}">
+                                        <img src="{{asset('backend/images/teachers/'.$course->teacher->profile_image)}}" alt="teacher">
+                                    </a>
                                 </div>
                                 <div class="name">
                                     <a href="{{url('teacher-info/'.$course->teacher->id)}}"><h6>{{$course->teacher->name}}</h6></a>
@@ -279,7 +281,9 @@
                                 <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
-                                        <img src="{{asset('backend/images/teachers/'.$teacher->profile_image)}}" alt="Teachers" height="300" width="150">
+                                        <a href="{{url('teacher-info/'.$teacher->id)}}">
+                                            <img src="{{asset('backend/images/teachers/'.$teacher->profile_image)}}" alt="Teachers" height="300" width="150">
+                                        </a>
                                     </div>
                                     <div class="cont">
                                         <a href="{{url('teacher-info/'.$teacher->id)}}"><h6>{{$teacher->name}}</h6></a>

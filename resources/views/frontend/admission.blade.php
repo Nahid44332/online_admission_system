@@ -102,12 +102,12 @@
                     <h5 class="mt-4 mb-2 text-primary">📘 SSC Result Information</h5>
                 </div>
                 <div class="form-group col-md-4 mb-3">
-                    <label>SSC Passing Year <span class="text-danger">*</span></label>
-                    <input type="text" name="ssc_passing_year" class="form-control" placeholder="e.g. 2020" required>
+                    <label>SSC Passing Year</label>
+                    <input type="text" name="ssc_passing_year" class="form-control" placeholder="e.g. 2020">
                 </div>
                 <div class="form-group col-md-4 mb-3">
-                    <label>SSC Board <span class="text-danger">*</span></label>
-                    <select name="ssc_board" class="form-control" required>
+                    <label>SSC Board</label>
+                    <select name="ssc_board" class="form-control">
                         <option selected disabled>Choose...</option>
                         <option>Dhaka</option>
                         <option>Chittagong</option>
@@ -132,12 +132,12 @@
                     <h5 class="mt-4 mb-2 text-primary">📗 HSC Result Information</h5>
                 </div>
                 <div class="form-group col-md-4 mb-3">
-                    <label>HSC Passing Year <span class="text-danger">*</span></label>
-                    <input type="text" name="hsc_passing_year" class="form-control" placeholder="e.g. 2022" required>
+                    <label>HSC Passing Year</label>
+                    <input type="text" name="hsc_passing_year" class="form-control" placeholder="e.g. 2022">
                 </div>
                 <div class="form-group col-md-4 mb-3">
-                    <label>HSC Board <span class="text-danger">*</span></label>
-                    <select name="hsc_board" class="form-control" required>
+                    <label>HSC Board</label>
+                    <select name="hsc_board" class="form-control">
                         <option selected disabled>Choose...</option>
                         <option>Dhaka</option>
                         <option>Chittagong</option>
@@ -153,8 +153,8 @@
                     </select>
                 </div>
                 <div class="form-group col-md-4 mb-3">
-                    <label>HSC GPA <span class="text-danger">*</span></label>
-                    <input type="text" name="hsc_result" class="form-control" placeholder="e.g. 5.00" required>
+                    <label>HSC GPA</label>
+                    <input type="text" name="hsc_result" class="form-control" placeholder="e.g. 5.00">
                 </div>
 
                 <!-- Class Applied For -->

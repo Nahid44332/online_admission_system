@@ -55,7 +55,36 @@ class CourseController extends Controller
    public function courseEdit($id)
    {
         $teachers = Teacher::get();
-        $courses = Course::find($id);
-        return view('backend.course.edit-course', compact('teachers', 'courses'));
+        $course = Course::find($id);
+        return view('backend.course.edit-course', compact('teachers', 'course'));
+   }
+
+   public function courseUpdate(Request $request, $id)
+   {
+        $course = Course::find($id);
+
+        $course->title = $request->title;
+        $course->description = $request->description;
+        $course->summery = $request->summery;
+        $course->requrements = $request->requrements;
+        $course->duration = $request->duration;
+        $course->course_fee = $request->course_fee;
+        $course->teacher_id = $request->teacher_id;
+
+        if(isset($request->thumbnail)){
+
+            if($course->thumbnail && file_exists('backend/images/courses/'.$course->thumbnail)){
+                unlink('backend/images/courses/'.$course->thumbnail);
+            }
+
+            $imageName = rand().'-teacher'.'.'.$request->thumbnail->extension(); //12345-teacher-.webp
+            $request->thumbnail->move('backend/images/courses/', $imageName);
+
+            $course->thumbnail = $imageName;
+        }
+
+        $course->save();
+        toastr()->success('Course Updated Successfully!');
+        return redirect()->back();
    }
 }

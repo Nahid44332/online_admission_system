@@ -23,9 +23,9 @@ class FrontendController extends Controller
     public function courses()
     {
         $courses = Course::get();
-        $teachers = Teacher::get();
+        $teacher = Teacher::get();
         $student = Student::with('Course')->count();
-        return view('frontend.courses', compact('courses', 'student', 'teachers'));
+        return view('frontend.courses', compact('courses', 'student', 'teacher'));
     }
     public function teachers()
     {

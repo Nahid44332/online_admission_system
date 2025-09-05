@@ -53,4 +53,4 @@ Route::get('/admin/course/create', [CourseController::class, 'courseCreate']);
 Route::post('/admin/course/store', [CourseController::class, 'courseStore']);
 Route::get('/admin/course/delete/{id}', [CourseController::class, 'courseDelete']);
 Route::get('/admin/course/edit/{id}', [CourseController::class, 'courseEdit']);
-Route::get('/admin/course/update/{id}', [CourseController::class, 'courseUpdate']);
+Route::post('/admin/course/update/{id}', [CourseController::class, 'courseUpdate']);

@@ -56,10 +56,10 @@
                             <div class="singel-course mt-30">
                                 <div class="thum">
                                     <div class="image">
-                                        <img src="{{asset('backend/images/courses/'.$course->thumbnail)}}" alt="Course">
+                                        <a href="{{url('course-details/'.$course->id)}}"><img src="{{asset('backend/images/courses/'.$course->thumbnail)}}" alt="Course"></a>
                                     </div>
                                     <div class="price">
-                                        <span>Ad</span>
+                                        <span>{{$course->course_fee}}</span>
                                     </div>
                                 </div>
                                 <div class="cont">
@@ -71,13 +71,13 @@
                                         <li><i class="fa fa-star"></i></li>
                                     </ul>
                                     <span>(20 Reviws)</span>
-                                    <a href="{{url('/course-details')}}"><h4>{{$course->title}}</h4></a>
+                                    <a href="{{url('course-details/'.$course->id)}}"><h4>{{$course->title}}</h4></a>
                                     <div class="course-teacher">
                                         <div class="thum">
-                                            <a href="#"><img src="{{asset('backend/images/teachers/'.$course->teacher->profile_image)}}" alt="teacher"></a>
+                                            <a href="{{url('teacher-info/'.$course->teacher->id)}}"><img src="{{asset('backend/images/teachers/'.$course->teacher->profile_image)}}" alt="teacher"></a>
                                         </div>
                                         <div class="name">
-                                            <a href="#"><h6>{{$course->teacher->name}}</h6></a>
+                                            <a href="{{url('teacher-info/'.$course->teacher->id)}}"><h6>{{$course->teacher->name}}</h6></a>
                                         </div>
                                         <div class="admin">
                                             <ul>

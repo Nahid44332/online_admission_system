@@ -68,7 +68,7 @@ class adminController extends Controller
         // Student ডেটা আপডেট
         $student->name              = $request->name;
         $student->father_name       = $request->father_name;
-        $student->mother_name       = $request->mother_name;
+        $student->mother_name       = $request->mother_name; 
         $student->dob               = $request->dob;
         $student->gender            = $request->gender;
         $student->email             = $request->email;

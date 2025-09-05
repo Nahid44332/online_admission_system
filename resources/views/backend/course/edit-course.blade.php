@@ -7,42 +7,42 @@
                 <h4>Edit Course</h4>
             </div>
             <div class="card-body">
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="{{url('/admin/course/update/'.$course->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group mb-3">
                         <label for="title">Course Title</label>
                         <input type="text" name="title" id="title" class="form-control"
-                            value="{{ $courses->title }}" placeholder="Enter course title">
+                            value="{{ $course->title }}" placeholder="Enter course title">
                     </div>
 
                     <div class="form-group mb-3">
                         <label for="description">Description</label>
                         <textarea name="description" id="description" rows="4" class="form-control"
-                            placeholder="Enter course description">{{ $courses->description }}</textarea>
+                            placeholder="Enter course description">{{ $course->description }}</textarea>
                     </div>
 
                     <div class="form-group mb-3">
                         <label for="summery">Course Summery</label>
-                        <textarea name="summery" id="summery" rows="4" class="form-control" placeholder="Enter course summery">{{ $courses->summery }}</textarea>
+                        <textarea name="summery" id="summery" rows="4" class="form-control" placeholder="Enter course summery">{{ $course->summery }}</textarea>
                     </div>
 
                     <div class="form-group mb-3">
                         <label for="requrements">Course Requrements</label>
                         <textarea name="requrements" id="requrements" rows="4" class="form-control"
-                            placeholder="Enter course requrements">{{ $courses->requrements }}</textarea>
+                            placeholder="Enter course requrements">{{ $course->requrements }}</textarea>
                     </div>
 
                     <div class="form-group mb-3">
                         <label for="duration">Duration</label>
                         <input type="text" name="duration" id="duration" class="form-control"
-                            value="{{ $courses->duration }}" placeholder="Ex: 3 Months, 6 Weeks">
+                            value="{{ $course->duration }}" placeholder="Ex: 3 Months, 6 Weeks">
                     </div>
 
                     <div class="form-group mb-3">
                         <label for="course_fee">Course Fee</label>
                         <input type="text" name="course_fee" id="course_fee" class="form-control"
-                            value="{{ $courses->course_fee }}" placeholder="Course Fee">
+                            value="{{ $course->course_fee }}" placeholder="Course Fee">
                     </div>
 
                     <div class="mb-3">
@@ -51,7 +51,7 @@
                             <option selected disabled>-- Select Teacher --</option>
                             @foreach ($teachers as $teacher)
                                 <option value="{{ $teacher->id }}"
-                                    {{ $teacher->id == $courses->teacher_id ? 'selected' : '' }}>
+                                    {{ $teacher->id == $course->teacher_id ? 'selected' : '' }}>
                                     {{ $teacher->name }}
                                 </option>
                             @endforeach
@@ -63,7 +63,7 @@
                         <input type="file" name="thumbnail" id="thumbnail" class="form-control">
                     </div>
                     <div>
-                        <img src="{{asset('backend/images/courses/'.$courses->thumbnail)}}" alt="" height="100" width="100" class="mb-3">
+                        <img src="{{asset('backend/images/courses/'.$course->thumbnail)}}" alt="" height="100" width="100" class="mb-3">
                     </div>
                     <button type="submit" class="btn btn-success">Update Course</button>
                 </form>

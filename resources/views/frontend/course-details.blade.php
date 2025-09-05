@@ -95,6 +95,10 @@
                                             <h6>Requrements</h6>
                                             <p>{{$course->requrements}}</p>
                                         </div>
+                                        <div class="singel-description pt-40">
+                                            <h6>Description</h6>
+                                            <p>{{$course->description}}</p>
+                                        </div>
                                     </div> <!-- overview description -->
                                 </div>
                                 <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
@@ -396,12 +400,12 @@
                             <div class="course-features mt-30">
                                <h4>Course Features </h4>
                                 <ul>
-                                    <li><i class="fa fa-clock-o"></i>Duaration : <span>10 Hours</span></li>
+                                    <li><i class="fa fa-clock-o"></i>Duaration : <span>{{$course->duration}}</span></li>
                                     <li><i class="fa fa-user-o"></i>Students :  <span>100</span></li>
                                 </ul>
                                 <div class="price-button pt-10">
-                                    <span>Price : <b>225 TK</b></span>
-                                    <a href="#" class="main-btn">Apply Now</a>
+                                    <span>Price : <b>{{$course->course_fee}}</b></span>
+                                    <a href="{{url('/admission')}}" class="main-btn">Apply Now</a>
                                 </div>
                             </div> <!-- course features -->
                         </div>
