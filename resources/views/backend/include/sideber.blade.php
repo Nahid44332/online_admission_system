@@ -59,5 +59,11 @@
                   <i class="mdi mdi-book menu-icon"></i>
               </a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{url('/admin/payment/list')}}">
+                  <span class="menu-title">Payments</span>
+                  <i class="mdi mdi-cash menu-icon"></i>
+              </a>
+          </li>
       </ul>
   </nav>

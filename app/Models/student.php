@@ -22,5 +22,18 @@ class Student extends Model
         return $this->belongsTo(Course::class, 'course_id', 'id'); 
     }
 
+     public function payments() {
+        return $this->hasMany(Payment::class);
+    }
+
+    // Total Paid
+    public function getTotalPaidAttribute() {
+        return $this->payments->sum('amount');
+    }
+
+    // Due Amount
+    public function getDueAmountAttribute() {
+        return $this->total_fee - $this->total_paid;
+    }
 }
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\adminAuthController;
 use App\Http\Controllers\backend\adminController;
 use App\Http\Controllers\backend\CourseController;
+use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\teachersController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
@@ -54,3 +55,9 @@ Route::post('/admin/course/store', [CourseController::class, 'courseStore']);
 Route::get('/admin/course/delete/{id}', [CourseController::class, 'courseDelete']);
 Route::get('/admin/course/edit/{id}', [CourseController::class, 'courseEdit']);
 Route::post('/admin/course/update/{id}', [CourseController::class, 'courseUpdate']);
+
+//Admission payment
+Route::get('payments/create/{student_id}', [PaymentController::class, 'createPayment']);
+Route::post('payments/store/{student_Id}', [PaymentController::class, 'paymentStore']);
+Route::get('/admin/payment/list', [PaymentController::class, 'paymentList']);
+Route::get('/payment/print/{id}', [PaymentController::class, 'paymentPrint']);

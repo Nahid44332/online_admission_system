@@ -59,6 +59,7 @@
                     <td>
                         <a href="{{url('/admin/student/edit/'.$student->id)}}" class="btn btn-primary"><i class="fa-solid fa-pen"></i></a>
                         <a href="{{url('/admin/student/delete/'.$student->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure delete Student?')"><i class="fa-solid fa-trash"></i></a>
+                        <a href="{{url('payments/create/'.$student->id)}}" class="btn btn-success">Add Payment</a>
                     </td>
                 </tr>
             @endforeach
