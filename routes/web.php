@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminAuthController;
 use App\Http\Controllers\backend\adminController;
+use App\Http\Controllers\backend\admitCardController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\teachersController;
@@ -66,3 +67,9 @@ Route::get('/payment/print/{id}', [PaymentController::class, 'paymentPrint']);
 //contact Messege..
 Route::get('/admin/contact-us', [adminController::class, 'contactUs']);
 Route::get('/admin/contact-us/delete/{id}', [adminController::class, 'contactUsDelete']);
+
+//Admit Card...
+Route::get('/admin/admit-card', [admitCardController::class, 'admitCard']);
+Route::get('/admin/admit-card/create', [admitCardController::class, 'admitCardCreate']);
+Route::post('/admin/admit-card/store', [admitCardController::class, 'admitCardStore']);
+Route::get('/admin/admit-card/print-admit/{id}', [AdmitCardController::class, 'printadmit']);

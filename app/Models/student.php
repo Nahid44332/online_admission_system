@@ -35,5 +35,11 @@ class Student extends Model
     public function getDueAmountAttribute() {
         return $this->total_fee - $this->total_paid;
     }
+
+    public function admitCards()
+    {
+        return $this->hasMany(AdmitCard::class, 'student_id', 'id');
+    }
+
 }
 

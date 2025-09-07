@@ -16,7 +16,7 @@ class teachersController extends Controller
     
     public function addTeacher()
     {
-        return view('backend.add-teacher');
+        return view('backend.teacher.add-teacher');
     }
 
     public function teacherStore(Request $request)
@@ -52,13 +52,13 @@ class teachersController extends Controller
     public function teacherList()
     {
         $teachers = Teacher::get();
-        return view('backend.teacher-list', compact('teachers'));
+        return view('backend.teacher.teacher-list', compact('teachers'));
     }
 
     public function teacherView($id)
     {
         $teacher = Teacher::find($id);
-        return view('backend.view-teacher', compact('teacher'));
+        return view('backend.teacher.view-teacher', compact('teacher'));
     }
 
     public function teacherDelete($id)
@@ -77,7 +77,7 @@ class teachersController extends Controller
     public function teacherEdit($id)
     {
         $teachers = Teacher::find($id);
-        return view('backend.edit-teacher', compact('teachers'));
+        return view('backend.teacher.edit-teacher', compact('teachers'));
     }
 
     public function updateTeacher(Request $request,$id)

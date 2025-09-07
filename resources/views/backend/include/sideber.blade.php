@@ -66,6 +66,12 @@
               </a>
           </li>
           <li class="nav-item">
+              <a class="nav-link" href="{{url('/admin/admit-card')}}">
+                  <span class="menu-title">Admit Card</span>
+                  <i class="mdi mdi-card-account-details-outline menu-icon"></i>
+              </a>
+          </li>
+          <li class="nav-item">
               <a class="nav-link" href="{{url('/admin/contact-us')}}">
                   <span class="menu-title">Contact Massege</span>
                   <i class="mdi mdi-account-box menu-icon"></i>

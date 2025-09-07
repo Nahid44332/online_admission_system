@@ -25,7 +25,7 @@ class adminController extends Controller
     public function studentList()
     {
         $students = Student::with('education', 'course')->get();
-        return view('backend.student-list', compact('students'));
+        return view('backend.student.student-list', compact('students'));
     }
 
    public function updateStatus($id)
@@ -60,7 +60,7 @@ class adminController extends Controller
     {
         $students = Student::with('education')->find($id);
         // dd($students);
-        return view('backend.edit-student', compact('students'));
+        return view('backend.student.edit-student', compact('students'));
     }
 
     public function updateStudent(Request $request, $id)
