@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Education;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request; // ✅ Laravel এর Request
+use Yoeunes\Toastr\Facades\Toastr;
 
 class FrontendController extends Controller
 {
@@ -41,6 +43,20 @@ class FrontendController extends Controller
     public function contactUs()
     {
         return view('frontend.contact-us');
+    }
+    public function contactUsStore(Request $request)
+    {
+        $contactUs = new Contact();
+
+        $contactUs->name = $request->name;
+        $contactUs->email = $request->email;
+        $contactUs->subject = $request->subject;
+        $contactUs->phone = $request->phone;
+        $contactUs->message = $request->message;
+
+        $contactUs->save();
+        Toastr()->success('Your Messege Send Successfully.');
+        return redirect()->back();
     }
     public function courseDetails($id)
     {

@@ -9,7 +9,7 @@
                     <h4 class="mb-0">Add Payment for Nahid Hossen</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ url('payments/store/'.$student_id) }}" method="POST">
+                    <form action="{{ url('admin/payments/store/'.$student_id) }}" method="POST">
                         @csrf
                         
                         <div class="mb-3">

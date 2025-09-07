@@ -34,7 +34,8 @@
                             <h2>Keep in touch</h2>
                         </div> <!-- section title -->
                         <div class="main-form pt-45">
-                            <form id="contact-form" action="#" method="post" data-toggle="validator">
+                            <form id="contact-form" action="{{url('/contact-us/store')}}" method="POST" data-toggle="validator">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="singel-form form-group">
@@ -62,7 +63,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="singel-form form-group">
-                                            <textarea name="messege" placeholder="Messege" data-error="Please,leave us a message." required="required"></textarea>
+                                            <textarea name="message" placeholder="Messege" data-error="Please,leave us a message." required="required"></textarea>
                                             <div class="help-block with-errors"></div>
                                         </div> <!-- singel form -->
                                     </div>

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Education;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Return_;
+use Yoeunes\Toastr\Facades\Toastr;
 
 class adminController extends Controller
 {
@@ -128,5 +130,22 @@ class adminController extends Controller
     }
 
     return redirect('/admin/student/list');
-}
+    }
+
+    // ContactMessege.....
+    
+    public function contactUs()
+    {
+        $contacts = Contact::get();
+        return view('backend.contactmessege.contact-messege',  compact('contacts'));
+    }
+
+    public function contactUsDelete($id)
+    {
+        $contact = Contact::find($id);
+
+        $contact->delete();
+        Toastr()->success('Contact message deleted successfully!');
+        return redirect()->back();
+    }
 }

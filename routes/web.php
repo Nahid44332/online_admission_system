@@ -21,6 +21,7 @@ Route::get('/courses', [FrontendController::class, 'courses']);
 Route::get('/teachers', [FrontendController::class, 'teachers']);
 Route::get('/teacher-info/{id}', [FrontendController::class, 'teacherInfo']);
 Route::get('/contact-us', [FrontendController::class, 'contactUs']);
+Route::post('/contact-us/store', [FrontendController::class, 'contactUsStore']);
 Route::get('/course-details/{id}', [FrontendController::class, 'courseDetails']);
 Route::get('/admission', [FrontendController::class, 'admission']);
 Route::post('/admission/store', [FrontendController::class, 'admissionStore']);
@@ -57,7 +58,11 @@ Route::get('/admin/course/edit/{id}', [CourseController::class, 'courseEdit']);
 Route::post('/admin/course/update/{id}', [CourseController::class, 'courseUpdate']);
 
 //Admission payment
-Route::get('payments/create/{student_id}', [PaymentController::class, 'createPayment']);
-Route::post('payments/store/{student_Id}', [PaymentController::class, 'paymentStore']);
+Route::get('/admin/payments/create/{student_id}', [PaymentController::class, 'createPayment']);
+Route::post('/admin/payments/store/{student_Id}', [PaymentController::class, 'paymentStore']);
 Route::get('/admin/payment/list', [PaymentController::class, 'paymentList']);
 Route::get('/payment/print/{id}', [PaymentController::class, 'paymentPrint']);
+
+//contact Messege..
+Route::get('/admin/contact-us', [adminController::class, 'contactUs']);
+Route::get('/admin/contact-us/delete/{id}', [adminController::class, 'contactUsDelete']);

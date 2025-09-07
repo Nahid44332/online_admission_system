@@ -123,8 +123,8 @@
                     </select>
                 </div>
                 <div class="form-group col-md-4 mb-3">
-                    <label>SSC GPA <span class="text-danger">*</span></label>
-                    <input type="text" name="ssc_result" class="form-control" placeholder="e.g. 4.80" required>
+                    <label>SSC GPA</label>
+                    <input type="text" name="ssc_result" class="form-control" placeholder="e.g. 4.80">
                 </div>
 
                 <!-- HSC Result Section -->

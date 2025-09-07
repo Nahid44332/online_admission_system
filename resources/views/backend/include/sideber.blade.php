@@ -65,5 +65,11 @@
                   <i class="mdi mdi-cash menu-icon"></i>
               </a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{url('/admin/contact-us')}}">
+                  <span class="menu-title">Contact Massege</span>
+                  <i class="mdi mdi-account-box menu-icon"></i>
+              </a>
+          </li>
       </ul>
   </nav>

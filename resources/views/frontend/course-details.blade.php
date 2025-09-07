@@ -241,11 +241,11 @@
                                     <div class="instructor-cont">
                                         <div class="instructor-author">
                                             <div class="author-thum">
-                                                <img src="{{asset('frontend/images/instructor/i-1.jpg')}}" alt="Instructor">
+                                                <img src="{{asset('backend/images/teachers/'.$course->teacher->profile_image)}}" alt="Instructor" height="200" width="200">
                                             </div>
                                             <div class="author-name">
-                                                <a href="#"><h5>Sumon Hasan</h5></a>
-                                                <span>Senior WordPress Developer</span>
+                                                <a href="#"><h5>{{$course->teacher->name}}</h5></a>
+                                                <span>{{$course->teacher->designation}}</span>
                                                 <ul class="social">
                                                     <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -255,7 +255,7 @@
                                             </div>
                                         </div>
                                         <div class="instructor-description pt-25">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus fuga ratione molestiae unde provident quibusdam sunt, doloremque. Error omnis mollitia, ex dolor sequi. Et, quibusdam excepturi. Animi assumenda, consequuntur dolorum odio sit inventore aliquid, optio fugiat alias. Veritatis minima, dicta quam repudiandae repellat non sit, distinctio, impedit, expedita tempora numquam?</p>
+                                            <p>{{$course->teacher->about}}</p>
                                         </div>
                                     </div> <!-- instructor cont -->
                                 </div>

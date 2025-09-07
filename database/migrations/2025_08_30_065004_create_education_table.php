@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('education', function (Blueprint $table) {
         $table->id();
         $table->unsignedBigInteger('student_id');
-        $table->string('ssc_passing_year');
-        $table->string('ssc_board');
-        $table->string('ssc_result');
-        $table->string('hsc_passing_year');
-        $table->string('hsc_board');
-        $table->string('hsc_result');
+        $table->string('ssc_passing_year')->nullable();
+        $table->string('ssc_board')->nullable();
+        $table->string('ssc_result')->nullable();
+        $table->string('hsc_passing_year')->nullable();
+        $table->string('hsc_board')->nullable();
+        $table->string('hsc_result')->nullable();
         $table->timestamps();
         });
     }
