@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Yoeunes\Toastr\Facades\Toastr;
 
 class CourseController extends Controller
 {
@@ -85,6 +86,15 @@ class CourseController extends Controller
 
         $course->save();
         toastr()->success('Course Updated Successfully!');
+        return redirect()->back();
+   }
+
+   public function courseDelete($id)
+   {
+        $course = Course::find($id);
+        
+        $course->delete();
+        Toastr()->success('Course Deleted Successfully!');
         return redirect()->back();
    }
 }

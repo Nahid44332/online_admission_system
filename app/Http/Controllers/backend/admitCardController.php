@@ -47,4 +47,34 @@ class admitCardController extends Controller
           $admitCard = AdmitCard::with('student')->findOrFail($id);
             return view('backend.admit-card.admit-print', compact('admitCard'));
     }
+
+    public function admitDelete($id)
+    {
+        $admitdelete = admitCard::find($id);
+
+        $admitdelete->delete();
+        Toastr()->success('Admit Card Delete Successfully!');
+        return redirect()->back();
+    }
+
+    public function admitEdit($id)
+    {
+        $student = Student::get();
+        $admitcard = admitCard::find($id);
+        return view('backend.admit-card.edit-admit-card', compact('admitcard', 'student'));
+    }
+
+    public function admitUpdate(Request $request, $id)
+    {
+        $admitcard = admitCard::find($id);
+        
+        $admitcard->course = $request->course;
+        $admitcard->exam = $request->exam;
+        $admitcard->exam_date = $request->exam_date;
+        $admitcard->seat_no = $request->seat_no;
+
+        $admitcard->save();
+        Toastr()->success('Admit Card Update Successfully!');
+        return redirect('/admin/admit-card');
+    }
 }

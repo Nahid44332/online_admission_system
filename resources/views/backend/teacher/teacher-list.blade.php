@@ -43,7 +43,7 @@
                     <a href="{{url('/admin/teacher/view/'.$teacher->id)}}" class="btn btn-sm btn-info"><i class="fa-solid fa-user"></i></a>
                     <a href="{{url('/admin/teacher/edit/'.$teacher->id)}}" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen"></i></a>
                     <a href="{{url('/admin/teacher/delete/'.$teacher->id)}}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure delete teacher?')"><i class="fa-solid fa-trash"></i></a>                
-                    <a href="#" class="btn btn-sm btn-success">Assign</a>
+                    <a href="{{url('/admin/teacher/assign-course/'.$teacher->id)}}" class="btn btn-sm btn-success">Assign</a>
                 </td>
             </tr>
            @endforeach

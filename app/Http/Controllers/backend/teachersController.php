@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Yoeunes\Toastr\Facades\Toastr;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Schema;
 
 class teachersController extends Controller
 {
@@ -112,4 +115,49 @@ class teachersController extends Controller
         Toastr()->success('Teachers info Updated Successfully!');
         return redirect('/admin/teacher/list');
     }
+
+    public function assignCourse($teacher_id)
+    {
+        $teacher = Teacher::findOrFail($teacher_id); // টিচার খুঁজে নাও
+        $courses = Course::all(); // সব কোর্স দেখাও
+        return view('backend.teacher.assign-course', compact('teacher', 'courses'));
+    }
+
+public function storeAssignCourse(Request $request)
+{
+    $course_id = $request->course_id;
+    $teacher_id = $request->teacher_id;
+
+    $course = Course::findOrFail($course_id);
+
+    $newCourse = new Course();
+
+    $newCourse->title = $course->title;
+    $newCourse->slug = Str::slug($course->title . '-' . time());
+    $newCourse->thumbnail = $course->thumbnail;
+    $newCourse->teacher_id = $teacher_id;
+
+    // Check and assign NOT NULL columns safely
+    if (Schema::hasColumn('courses', 'course_fee')) {
+        $newCourse->course_fee = $course->course_fee ?? 0;
+    }
+    if (Schema::hasColumn('courses', 'duration')) {
+        $newCourse->duration = $course->duration ?? '1 month';
+    }
+    if (Schema::hasColumn('courses', 'summery')) {
+        $newCourse->summery = $course->summery ?? 'No summary provided';
+    }
+    if (Schema::hasColumn('courses', 'description')) {
+        $newCourse->description = $course->description ?? 'No description';
+    }
+    if (Schema::hasColumn('courses', 'requrements')) {
+        $newCourse->requrements = $course->requrements ?? 'No requirements';
+    }
+
+    $newCourse->save();
+
+    Toastr()->success('Course assigned to teacher successfully!');
+    return redirect('/admin/course');
+}
+
 }

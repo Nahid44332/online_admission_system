@@ -49,8 +49,8 @@
                     <td>{{$admit->exam_date}}</td>
                     <td>{{$admit->seat_no}}</td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen"></i></a>
-                        <a href="#" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        <a href="{{url('/admin/admit-card/edit/'.$admit->id)}}" class="btn btn-sm btn-primary"><i class="fa-solid fa-pen"></i></a>
+                        <a href="{{url('/admin/admit-card/delete/'.$admit->id)}}" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a>
                         <a href="{{url('/admin/admit-card/print-admit/'.$admit->id)}}" class="btn btn-sm btn-info"><i class="fa-solid fa-print"></i></a>
                     </td>
                 </tr>

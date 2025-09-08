@@ -49,6 +49,9 @@ Route::get('/admin/teacher/view/{id}', [teachersController::class, 'teacherView'
 Route::get('/admin/teacher/delete/{id}', [teachersController::class, 'teacherDelete']);
 Route::get('/admin/teacher/edit/{id}', [teachersController::class, 'teacherEdit']);
 Route::post('/admin/teacher/update/{id}', [teachersController::class, 'updateTeacher']);
+Route::get('/admin/teacher/assign-course/{id}', [teachersController::class, 'assignCourse']);
+Route::post('/admin/teacher/assign-course/store', [TeachersController::class, 'storeAssignCourse']);
+
 
 //Course
 Route::get('/admin/course', [CourseController::class, 'course']);
@@ -73,3 +76,6 @@ Route::get('/admin/admit-card', [admitCardController::class, 'admitCard']);
 Route::get('/admin/admit-card/create', [admitCardController::class, 'admitCardCreate']);
 Route::post('/admin/admit-card/store', [admitCardController::class, 'admitCardStore']);
 Route::get('/admin/admit-card/print-admit/{id}', [AdmitCardController::class, 'printadmit']);
+Route::get('/admin/admit-card/delete/{id}', [AdmitCardController::class, 'admitDelete']);
+Route::get('/admin/admit-card/edit/{id}', [AdmitCardController::class, 'admitEdit']);
+Route::post('/admin/admit-card/update/{id}', [AdmitCardController::class, 'admitUpdate']);
