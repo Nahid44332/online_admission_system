@@ -26,7 +26,7 @@
                         <td>{{$payment->student->id}}</td>
                         <td>{{$payment->course ? $payment->course->course_fee : 'N/A' }}</td>
                         <td>{{$payment->amount}}</td>
-                        <td>{{$payment->created_at}}</td>
+                        <td>{{$payment->created_at->format('d M Y')}}</td>
                         <td>
                             <a href="{{url('/payment/print/'.$payment->id)}}" class="btn btn-sm btn-primary">
                                 print

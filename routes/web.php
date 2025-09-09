@@ -4,6 +4,7 @@ use App\Http\Controllers\adminAuthController;
 use App\Http\Controllers\backend\adminController;
 use App\Http\Controllers\backend\admitCardController;
 use App\Http\Controllers\backend\CourseController;
+use App\Http\Controllers\backend\ExamController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\teachersController;
 use App\Http\Controllers\FrontendController;
@@ -79,3 +80,7 @@ Route::get('/admin/admit-card/print-admit/{id}', [AdmitCardController::class, 'p
 Route::get('/admin/admit-card/delete/{id}', [AdmitCardController::class, 'admitDelete']);
 Route::get('/admin/admit-card/edit/{id}', [AdmitCardController::class, 'admitEdit']);
 Route::post('/admin/admit-card/update/{id}', [AdmitCardController::class, 'admitUpdate']);
+
+//Exam
+Route::get('/admin/exam', [ExamController::class, 'exam']);
+Route::get('/admin/exam/create', [ExamController::class, 'examCreate']);

@@ -45,7 +45,7 @@
                     <td>{{ $student->father_name }}</td>
                     <td>{{ $student->mother_name }}</td>
                     <td>{{ $student->course->title}}</td>
-                    <td>{{ $student->created_at }}</td>
+                    <td>{{ $student->created_at->format('d M Y')}}</td>
                     <td>
                         <form action="{{url('/admin/student/status/'.$student->id)}}" method="POST">
                             @csrf

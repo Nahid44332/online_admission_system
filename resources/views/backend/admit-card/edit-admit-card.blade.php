@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <h3>Generate Admit Card</h3>
+        <h3>Edit Admit Card</h3>
 
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
