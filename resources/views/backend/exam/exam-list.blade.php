@@ -25,24 +25,29 @@
         <thead class="table-success">
             <tr>
                 <th>SL</th>
-                <th>Exam Title</th>
-                <th>File Name</th>
+                <th>Exam</th>
+                <th>Exam Date</th>
+                <th>Exam File</th>
                 <th>Upload Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
+              @foreach ($exams as $exam)
                 <tr>
-                    <td>1</td>
-                    <td>Final Exam 2025</td>
-                    <td>Computer MCQ Batch-01</td>
-                    <td>09 Sep 2025</td>
+                    <td>{{$loop->index+1}}</td>
+                    <td>{{$exam->title}}</td>
+                    <td>{{$exam->exam_date}}</td>
+                    <td>{{$exam->exam_file}}</td>
+                    <td>{{$exam->created_at->format('d/m/y')}}</td>
                     <td>
-                        <a href="#" class="btn btn-primary">view</a>
-                        <a href="#" class="btn btn-success">Print</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+                         <a href="{{asset('backend/file/exam/'.$exam->exam_file)}}" target="_blank" class="btn btn-primary btn-sm"><span class="mdi mdi-eye"></span></a>
+                        <a href="{{asset('backend/file/exam/'.$exam->exam_file)}}" download class="btn btn-success btn-sm">
+                            <span class="mdi mdi-download"></span></a>
+                        <a href="{{url('/admin/exam/delete/'.$exam->id)}}" onclick="return confirm('Are you sure Delete Exam File?')" class="btn btn-danger btn-sm"><span class="mdi mdi-delete"></span></a>
                     </td>
                 </tr>
+              @endforeach
         </tbody>
     </table>
     <div class="">

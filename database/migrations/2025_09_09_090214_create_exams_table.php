@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->date('exam_date')->nullable();
-            $table->string('file_name');
-            $table->string('file_path');
+            $table->string('exam_file');
             $table->timestamps();
         });
     }

@@ -29,7 +29,7 @@
                         <td>{{$payment->created_at->format('d M Y')}}</td>
                         <td>
                             <a href="{{url('/payment/print/'.$payment->id)}}" class="btn btn-sm btn-primary">
-                                print
+                                <i class="fa-solid fa-print"></i>
                             </a>
                         </td>
                     </tr>

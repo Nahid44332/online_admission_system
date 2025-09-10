@@ -25,7 +25,7 @@
         <!-- Students -->
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#student-menu" aria-expanded="false"
-               aria-controls="student-menu">
+                aria-controls="student-menu">
                 <span class="menu-title">Students</span>
                 <i class="menu-arrow"></i>
                 <i class="fa-solid fa-user"></i>
@@ -42,7 +42,7 @@
         <!-- Teachers -->
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#teacher-menu" aria-expanded="false"
-               aria-controls="teacher-menu">
+                aria-controls="teacher-menu">
                 <span class="menu-title">Teachers</span>
                 <i class="menu-arrow"></i>
                 <i class="fa-solid fa-chalkboard-user"></i>
@@ -85,9 +85,29 @@
 
         <!-- Exam -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ url('/admin/exam') }}">
+            <a class="nav-link" data-bs-toggle="collapse" href="#exam-menu" aria-expanded="false"
+                aria-controls="exam-menu">
                 <span class="menu-title">Exam</span>
+                <i class="menu-arrow"></i>
                 <i class="mdi mdi-account-file-text menu-icon"></i>
+            </a>
+            <div class="collapse" id="exam-menu">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/admin/exam') }}">Exam List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/admin/exam/create') }}">Upload Exam File</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+          <!-- Student Result -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/admin/student/result')}}">
+                <span class="menu-title">Result</span>
+                <i class="mdi mdi-file-find menu-icon"></i>
             </a>
         </li>
 

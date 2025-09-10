@@ -6,6 +6,8 @@ use App\Http\Controllers\backend\admitCardController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\ExamController;
 use App\Http\Controllers\backend\PaymentController;
+use App\Http\Controllers\backend\resultController;
+use App\Http\Controllers\backend\ResultController as BackendResultController;
 use App\Http\Controllers\backend\teachersController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
@@ -84,3 +86,8 @@ Route::post('/admin/admit-card/update/{id}', [AdmitCardController::class, 'admit
 //Exam
 Route::get('/admin/exam', [ExamController::class, 'exam']);
 Route::get('/admin/exam/create', [ExamController::class, 'examCreate']);
+Route::post('/admin/exam/store', [ExamController::class, 'examStore']);
+Route::get('/admin/exam/delete/{id}', [ExamController::class, 'examDelete']);
+
+//Result...
+Route::get('/admin/student/result', [resultController::class, 'studentResult']);
