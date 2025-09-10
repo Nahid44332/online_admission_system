@@ -7,7 +7,6 @@ use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\ExamController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\resultController;
-use App\Http\Controllers\backend\ResultController as BackendResultController;
 use App\Http\Controllers\backend\teachersController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +28,8 @@ Route::post('/contact-us/store', [FrontendController::class, 'contactUsStore']);
 Route::get('/course-details/{id}', [FrontendController::class, 'courseDetails']);
 Route::get('/admission', [FrontendController::class, 'admission']);
 Route::post('/admission/store', [FrontendController::class, 'admissionStore']);
+Route::get('/student-result', [FrontendController::class, 'studentResult']);
+Route::post('/student-result', [FrontendController::class, 'showResult']);
 
 // Auth Route
 Route::get('/admin/login', [adminAuthController::class, 'adminLogin']);
@@ -91,3 +92,8 @@ Route::get('/admin/exam/delete/{id}', [ExamController::class, 'examDelete']);
 
 //Result...
 Route::get('/admin/student/result', [resultController::class, 'studentResult']);
+Route::get('/admin/student/result-create', [resultController::class, 'createResult']);
+Route::post('/admin/student/result/store', [resultController::class, 'storeResult']);
+Route::get('/admin/student/resule/edit/{id}', [resultController::class, 'editResult']);
+Route::post('/admin/student/resule/update/{id}', [resultController::class, 'updateResult']);
+Route::get('/admin/student/resule/delete/{id}', [resultController::class, 'deleteResult']);

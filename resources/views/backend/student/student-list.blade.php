@@ -22,6 +22,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>SL</th>
                 <th>Student ID</th>
                 <th> Student</th>
                 <th> First name</th>
@@ -37,6 +38,7 @@
             @foreach ($students as $student)
                 <tr>
                     <td>{{ $loop->index + 1 }}</td>
+                    <td>{{$student->id}}</td>
                     <td class="py-1">
                         <img src="{{asset('backend/images/students/'.$student->image) }}" alt="{{ $student->name }}"
                             height="80" width="80" />

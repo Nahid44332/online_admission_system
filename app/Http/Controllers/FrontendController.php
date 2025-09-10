@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Education;
+use App\Models\Result;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request; // ✅ Laravel এর Request
@@ -18,10 +19,12 @@ class FrontendController extends Controller
         $courses = Course::with('Teacher')->get();
         return view('frontend.index', compact('teachers', 'courses'));
     }
+
     public function aboutUs()
     {
         return view('frontend.about-us');
     }
+
     public function courses()
     {
         $courses = Course::get();
@@ -29,21 +32,47 @@ class FrontendController extends Controller
         $student = Student::with('Course')->count();
         return view('frontend.courses', compact('courses', 'student', 'teacher'));
     }
+
     public function teachers()
     {
         $teachers = Teacher::get();
         return view('frontend.teachers', compact('teachers'));
     }
+
     public function teacherInfo($id)
     {
         $teachers = Teacher::find($id);
         $courses = Course::find($id);
         return view('frontend.teacher-info', compact('teachers', 'courses'));
     }
+
+     // Show the result form
+    public function studentResult()
+    {
+        return view('frontend.student-result'); // Blade form
+    }
+
+    // Handle form submission and show result
+    public function showResult(Request $request)
+    {
+        $request->validate([
+            'student_id' => 'required|exists:students,id',
+        ]);
+
+        $result = Result::with('student')->where('student_id', $request->student_id)->first();
+
+        if (!$result) {
+            return back()->with('error', 'No result found for this Student ID');
+        }
+
+        return view('frontend.result_view', compact('result'));
+    }
+
     public function contactUs()
     {
         return view('frontend.contact-us');
     }
+
     public function contactUsStore(Request $request)
     {
         $contactUs = new Contact();
@@ -58,16 +87,19 @@ class FrontendController extends Controller
         Toastr()->success('Your Messege Send Successfully.');
         return redirect()->back();
     }
+
     public function courseDetails($id)
     {
         $course = Course::with('teacher')->find($id);
         return view('frontend.course-details', compact('course'));
     }
+
     public function admission()
     {
         $courses = Course::get();
         return view('frontend.admission', compact('courses'));
     }
+
     public function admissionStore(Request $request)
     {
         // --- Student Data Save ---

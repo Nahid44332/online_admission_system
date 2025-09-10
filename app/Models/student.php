@@ -41,5 +41,9 @@ class Student extends Model
         return $this->hasMany(AdmitCard::class, 'student_id', 'id');
     }
 
+     public function results()
+    {
+        return $this->hasMany(Student::class, 'student_id', 'id');
+    }
 }
 
