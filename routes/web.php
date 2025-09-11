@@ -3,9 +3,11 @@
 use App\Http\Controllers\adminAuthController;
 use App\Http\Controllers\backend\adminController;
 use App\Http\Controllers\backend\admitCardController;
+use App\Http\Controllers\backend\CertificateController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\ExamController;
 use App\Http\Controllers\backend\PaymentController;
+use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\resultController;
 use App\Http\Controllers\backend\teachersController;
 use App\Http\Controllers\FrontendController;
@@ -30,6 +32,11 @@ Route::get('/admission', [FrontendController::class, 'admission']);
 Route::post('/admission/store', [FrontendController::class, 'admissionStore']);
 Route::get('/student-result', [FrontendController::class, 'studentResult']);
 Route::post('/student-result', [FrontendController::class, 'showResult']);
+
+// certificate check
+Route::get('/certificate/check', [FrontendController::class, 'checkForm']);
+Route::post('/certificate/check', [FrontendController::class, 'checkStatus']);
+
 
 // Auth Route
 Route::get('/admin/login', [adminAuthController::class, 'adminLogin']);
@@ -97,3 +104,19 @@ Route::post('/admin/student/result/store', [resultController::class, 'storeResul
 Route::get('/admin/student/resule/edit/{id}', [resultController::class, 'editResult']);
 Route::post('/admin/student/resule/update/{id}', [resultController::class, 'updateResult']);
 Route::get('/admin/student/resule/delete/{id}', [resultController::class, 'deleteResult']);
+
+// Certificate...
+Route::get('/admin/student/certificate', [CertificateController::class, 'studentCertificate']);
+Route::get('/admin/student/certificate/create', [CertificateController::class, 'studentCertificateCreate']);
+Route::post('/admin/student/certificate/store', [CertificateController::class, 'certificateStore']);
+Route::get('/admin/student/certificate/{id}', [CertificateController::class, 'certificateView']);
+Route::get('/admin/student/certificate/delete/{id}', [CertificateController::class, 'certificateDelete']);
+Route::get('/admin/student/certificate/print/{id}', [CertificateController::class, 'certificatePrint']);
+
+//Report....
+Route::get('/admin/reports', [ReportController::class, 'allReports']);
+Route::get('/admin/reports/students', [ReportController::class, 'studentReports']);
+Route::get('/admin/reports/teachers', [ReportController::class, 'teacherReports']);
+Route::get('/admin/reports/courses', [ReportController::class, 'courseReports']);
+Route::get('/admin/reports/payments', [ReportController::class, 'paymentReports']);
+Route::get('/admin/reports/certificates', [ReportController::class, 'certificateReports']);

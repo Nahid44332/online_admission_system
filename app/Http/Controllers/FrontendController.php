@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Certificate;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Education;
@@ -46,7 +47,7 @@ class FrontendController extends Controller
         return view('frontend.teacher-info', compact('teachers', 'courses'));
     }
 
-     // Show the result form
+    // Show the result form
     public function studentResult()
     {
         return view('frontend.student-result'); // Blade form
@@ -118,12 +119,11 @@ class FrontendController extends Controller
         $student->course_id         = $request->course_id;
 
         // --- Image Upload ---
-        if(isset($request->image)){
-            $imageName = rand().'-student'.'.'.$request->image->extension(); //12345-student-.webp
+        if (isset($request->image)) {
+            $imageName = rand() . '-student' . '.' . $request->image->extension(); //12345-student-.webp
             $request->image->move('backend/images/students/', $imageName);
 
             $student->image = $imageName;
-
         }
 
         $student->present_address   = $request->address;
@@ -143,5 +143,32 @@ class FrontendController extends Controller
         $education->save();
         toastr()->success('You have been Ragistered Successfully!');
         return redirect()->back();
+    }
+
+    public function checkForm()
+    {
+        return view('frontend.check-certificate');
+    }
+
+    // Handle certificate status check
+    public function checkStatus(Request $request)
+    {
+        $request->validate([
+            'student_id' => 'required|exists:students,id',
+        ]);
+
+        $certificate = Certificate::where('student_id', $request->student_id)->first();
+
+        if ($certificate) {
+            // Certificate generated
+            return view('frontend.certificate-status', [
+                'message' => "আপনার সার্টিফিকেট জেনারেট হয়েছে। সার্টিফিকেট নাম্বার: " . $certificate->certificate_no
+            ]);
+        } else {
+            // Not generated yet
+            return view('frontend.certificate-status', [
+                'message' => "আপনার সার্টিফিকেট এখনও জেনারেট হয়নি।"
+            ]);
+        } 
     }
 }

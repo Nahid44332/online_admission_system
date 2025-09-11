@@ -28,7 +28,7 @@
                 aria-controls="student-menu">
                 <span class="menu-title">Students</span>
                 <i class="menu-arrow"></i>
-                <i class="fa-solid fa-user"></i>
+                <i class="mdi mdi-account menu-icon"></i>
             </a>
             <div class="collapse" id="student-menu">
                 <ul class="nav flex-column sub-menu">
@@ -45,7 +45,7 @@
                 aria-controls="teacher-menu">
                 <span class="menu-title">Teachers</span>
                 <i class="menu-arrow"></i>
-                <i class="fa-solid fa-chalkboard-user"></i>
+                <i class="mdi mdi-account-tie menu-icon"></i>
             </a>
             <div class="collapse" id="teacher-menu">
                 <ul class="nav flex-column sub-menu">
@@ -103,12 +103,52 @@
             </div>
         </li>
 
-          <!-- Student Result -->
+        <!-- Student Result -->
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/admin/student/result')}}">
+            <a class="nav-link" href="{{ url('/admin/student/result') }}">
                 <span class="menu-title">Result</span>
                 <i class="mdi mdi-file-find menu-icon"></i>
             </a>
+        </li>
+
+        <!-- Student Certificate -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url('/admin/student/certificate') }}">
+                <span class="menu-title">Certificate</span>
+                <i class="mdi mdi-certificate menu-icon"></i>
+            </a>
+        </li>
+
+        <!-- Reports -->
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#report-menu" aria-expanded="false"
+                aria-controls="report-menu">
+                <span class="menu-title">Reports</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-chart-bar menu-icon"></i>
+            </a>
+            <div class="collapse" id="report-menu">
+                <ul class="nav flex-column sub-menu">
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/reports')}}">All Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/reports/students')}}">Students Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/reports/teachers')}}">Teacers Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/reports/courses')}}">Course Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/reports/payments')}}">Payment Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/reports/certificates')}}">Certificate Reports</a>
+                    </li>
+                </ul>
+            </div>
         </li>
 
         <!-- Contact -->

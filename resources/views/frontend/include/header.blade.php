@@ -78,6 +78,9 @@
                                         <a href="{{url('/student-result')}}">Student Result</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="{{url('/certificate/check')}}">Check Certificate</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="{{url('/contact-us')}}">Contact Us</a>
                                     </li>
                                 </ul>
