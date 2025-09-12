@@ -151,6 +151,14 @@
             </div>
         </li>
 
+        <!-- Notice -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/admin/notice')}}">
+                <span class="menu-title">Notice</span>
+                <i class="mdi mdi-bulletin-board menu-icon"></i>
+            </a>
+        </li>
+
         <!-- Contact -->
         <li class="nav-item">
             <a class="nav-link" href="{{ url('/admin/contact-us') }}">

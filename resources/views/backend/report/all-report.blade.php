@@ -28,7 +28,7 @@
             <h3>{{ $totapayments }}</h3>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mt-3">
         <div class="card p-3 bg-info text-white">
             <h5>Total Certificate</h5>
             <h3>{{ $totacertificates }}</h3>

@@ -6,6 +6,7 @@ use App\Models\Certificate;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Education;
+use App\Models\Notice;
 use App\Models\Result;
 use App\Models\Student;
 use App\Models\Teacher;
@@ -171,4 +172,19 @@ class FrontendController extends Controller
             ]);
         } 
     }
+
+    // Notice section
+
+    public function notice()
+    {
+         $notices = Notice::where('status', 1)->orderBy('created_at', 'desc')->get();
+        return view('frontend.notice', compact('notices'));
+    }
+
+    public function show($id)
+{
+    $notice = Notice::where('status', 1)->find($id);
+    return view('frontend.show-notice', compact('notice'));
+}
+
 }

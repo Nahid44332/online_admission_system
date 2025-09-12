@@ -36,7 +36,7 @@
                                     @endif
                                 </span>
                                 @empty
-                                    <span>No Course Assign</span>
+                                    <span>No Assign Course</span>
                                 @endforelse
                             </td>
                         </tr>

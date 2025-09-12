@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Notice;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+         // সব ভিউতে notice count পাঠানো
+    View::composer('*', function ($view) {
+        $noticeCount = Notice::where('status', 1)->count();
+        $view->with('noticeCount', $noticeCount);
+    });
     }
 }

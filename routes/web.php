@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\admitCardController;
 use App\Http\Controllers\backend\CertificateController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\ExamController;
+use App\Http\Controllers\backend\NoticeController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\resultController;
@@ -30,12 +31,18 @@ Route::post('/contact-us/store', [FrontendController::class, 'contactUsStore']);
 Route::get('/course-details/{id}', [FrontendController::class, 'courseDetails']);
 Route::get('/admission', [FrontendController::class, 'admission']);
 Route::post('/admission/store', [FrontendController::class, 'admissionStore']);
+
+// Student Result 
 Route::get('/student-result', [FrontendController::class, 'studentResult']);
 Route::post('/student-result', [FrontendController::class, 'showResult']);
 
 // certificate check
 Route::get('/certificate/check', [FrontendController::class, 'checkForm']);
 Route::post('/certificate/check', [FrontendController::class, 'checkStatus']);
+
+// Notice
+Route::get('/notice', [FrontendController::class, 'notice']);
+Route::get('/notice/{id}', [FrontendController::class, 'show']);
 
 
 // Auth Route
@@ -120,3 +127,12 @@ Route::get('/admin/reports/teachers', [ReportController::class, 'teacherReports'
 Route::get('/admin/reports/courses', [ReportController::class, 'courseReports']);
 Route::get('/admin/reports/payments', [ReportController::class, 'paymentReports']);
 Route::get('/admin/reports/certificates', [ReportController::class, 'certificateReports']);
+
+// Notice
+Route::get('/admin/notice', [NoticeController::class, 'Notice']);
+Route::get('/admin/notice/create', [NoticeController::class, 'noticeCreate']);
+Route::post('/admin/notice/store', [NoticeController::class, 'noticeStore']);
+Route::post('/admin/notice/toggle-status/{id}', [NoticeController::class, 'toggleStatus']);
+Route::get('/admin/notice/delete/{id}', [NoticeController::class, 'noticeDelete']);
+Route::get('/admin/notice/edit/{id}', [NoticeController::class, 'noticeEdit']);
+Route::post('/admin/notice/update/{id}', [NoticeController::class, 'noticeUpdate']);
