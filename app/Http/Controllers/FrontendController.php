@@ -10,6 +10,7 @@ use App\Models\Notice;
 use App\Models\Result;
 use App\Models\Student;
 use App\Models\Teacher;
+use App\Models\Testimonial;
 use Illuminate\Http\Request; // ✅ Laravel এর Request
 use Yoeunes\Toastr\Facades\Toastr;
 
@@ -19,7 +20,8 @@ class FrontendController extends Controller
     {
         $teachers = Teacher::get();
         $courses = Course::with('Teacher')->get();
-        return view('frontend.index', compact('teachers', 'courses'));
+        $testimonials = Testimonial::get();
+        return view('frontend.index', compact('teachers', 'courses', 'testimonials'));
     }
 
     public function aboutUs()

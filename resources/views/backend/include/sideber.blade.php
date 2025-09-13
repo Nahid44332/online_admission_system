@@ -166,5 +166,13 @@
                 <i class="mdi mdi-account-box menu-icon"></i>
             </a>
         </li>
+
+        <!-- Contact -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/admin/testimonial')}}">
+                <span class="menu-title">Testimonial</span>
+                <i class="mdi mdi-comment menu-icon"></i>
+            </a>
+        </li>
     </ul>
 </nav>

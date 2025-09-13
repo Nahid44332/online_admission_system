@@ -11,6 +11,7 @@ use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\resultController;
 use App\Http\Controllers\backend\teachersController;
+use App\Http\Controllers\backend\TestimonialController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -136,3 +137,11 @@ Route::post('/admin/notice/toggle-status/{id}', [NoticeController::class, 'toggl
 Route::get('/admin/notice/delete/{id}', [NoticeController::class, 'noticeDelete']);
 Route::get('/admin/notice/edit/{id}', [NoticeController::class, 'noticeEdit']);
 Route::post('/admin/notice/update/{id}', [NoticeController::class, 'noticeUpdate']);
+
+// Testimonial
+Route::get('/admin/testimonial', [TestimonialController::class, 'testimonial']);
+Route::get('/admin/testimonial/create', [TestimonialController::class, 'testimonialCreate']);
+Route::post('/admin/testimonial/store', [TestimonialController::class, 'testimonialStore']);
+Route::get('/admin/testimonial/delete/{id}', [TestimonialController::class, 'testimonialDelete']);
+Route::get('/admin/testimonial/edit/{id}', [TestimonialController::class, 'testimonialEdit']);
+Route::post('/admin/testimonial/update/{id}', [TestimonialController::class, 'testimonialUpdate']);

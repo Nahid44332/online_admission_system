@@ -3,41 +3,56 @@
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Edit Form {{ $students->name }}</h4>
-                <p class="card-description"> Edit Information</p>
+                <h4 class="card-title">Edit Form: {{ $students->name }}</h4>
+                <p class="card-description">Edit Information</p>
+
                 <form class="forms-sample" action="{{ url('/admin/student/update/' . $students->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
+
+                    <!-- Name -->
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" name="name" id="name"
                             value="{{ $students->name }}" placeholder="Name">
                     </div>
+
+                    <!-- Father Name -->
                     <div class="form-group">
                         <label for="father_name">Father Name</label>
                         <input type="text" class="form-control" name="father_name" value="{{ $students->father_name }}"
                             id="father_name" placeholder="Father Name">
                     </div>
+
+                    <!-- Mother Name -->
                     <div class="form-group">
                         <label for="mother_name">Mother Name</label>
                         <input type="text" class="form-control" name="mother_name" value="{{ $students->mother_name }}"
-                            id="mother_name" placeholder="Name">
+                            id="mother_name" placeholder="Mother Name">
                     </div>
+
+                    <!-- DOB -->
                     <div class="form-group">
                         <label for="dob">Date Of Birth</label>
                         <input type="date" class="form-control" name="dob" value="{{ $students->dob }}"
-                            id="dob" placeholder="Name">
+                            id="dob" placeholder="Date of Birth">
                     </div>
+
+                    <!-- Email -->
                     <div class="form-group">
                         <label for="email">Email address</label>
                         <input type="email" class="form-control" name="email" value="{{ $students->email }}"
                             id="email" placeholder="Email">
                     </div>
+
+                    <!-- Phone -->
                     <div class="form-group">
-                        <label for="phone">phone Number</label>
-                        <input type="phone" class="form-control" name="phone" value="{{ $students->phone }}"
-                            id="phone" placeholder="phone">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" class="form-control" name="phone" value="{{ $students->phone }}"
+                            id="phone" placeholder="Phone">
                     </div>
+
+                    <!-- Gender -->
                     <div class="form-group">
                         <label for="gender">Gender</label>
                         <select class="form-select" name="gender" id="gender">
@@ -45,6 +60,8 @@
                             <option value="Female" @if ($students->gender == 'Female') selected @endif>Female</option>
                         </select>
                     </div>
+
+                    <!-- Blood -->
                     <div class="form-group">
                         <label for="blood">Blood</label>
                         <select class="form-select" name="blood" id="blood">
@@ -56,57 +73,71 @@
                             <option value="O-" @if ($students->blood == 'O-') selected @endif>O-</option>
                         </select>
                     </div>
+
+                    <!-- Nationality -->
                     <div class="form-group">
                         <label for="nationality">Nationality</label>
                         <input type="text" class="form-control" name="nationality" value="{{ $students->nationality }}"
-                            id="exampleInputEmail3" placeholder="Nationality">
+                            placeholder="Nationality">
                     </div>
+
+                    <!-- Religion -->
                     <div class="form-group">
                         <label for="religion">Religion</label>
                         <input type="text" class="form-control" name="religion" value="{{ $students->religion }}"
-                            id="exampleInputEmail3" placeholder="Religion">
+                            placeholder="Religion">
                     </div>
-                    <H2>Educational Info</H2>
+
+                    <!-- Educational Info -->
+                    <h2>Educational Info</h2>
                     @foreach ($students->education as $educate)
                         <div class="form-group">
-                            <label for="ssc_passing_year">SSC Passing Year</label>
+                            <label>SSC Passing Year</label>
                             <input type="text" class="form-control" name="ssc_passing_year[]"
-                                value="{{ $educate->ssc_passing_year }}" id="ssc_passing_year"
-                                placeholder="SSC Passing Year">
+                                value="{{ $educate->ssc_passing_year }}" placeholder="SSC Passing Year">
                         </div>
                         <div class="form-group">
-                            <label for="ssc_board">SSC Board</label>
-                            <input type="text" class="form-control" name="ssc_board[]"
-                                value="{{ $educate->ssc_board }}" id="ssc_board" placeholder="SSC Board">
+                            <label>SSC Board</label>
+                            <input type="text" class="form-control" name="ssc_board[]" value="{{ $educate->ssc_board }}"
+                                placeholder="SSC Board">
                         </div>
                         <div class="form-group">
-                            <label for="ssc_result">SSC Rusult</label>
+                            <label>SSC Result</label>
                             <input type="text" class="form-control" name="ssc_result[]"
-                                value="{{ $educate->ssc_result }}" id="ssc_result" placeholder="SSC Rusult">
+                                value="{{ $educate->ssc_result }}" placeholder="SSC Result">
                         </div>
                         <div class="form-group">
-                            <label for="hsc_passing_year">HSC Passing Year</label>
+                            <label>HSC Passing Year</label>
                             <input type="text" class="form-control" name="hsc_passing_year[]"
-                                value="{{ $educate->hsc_passing_year }}" id="hsc_passing_year"
-                                placeholder="HSC Passing Year">
+                                value="{{ $educate->hsc_passing_year }}" placeholder="HSC Passing Year">
                         </div>
                         <div class="form-group">
-                            <label for="hsc_board">HSC Board</label>
+                            <label>HSC Board</label>
                             <input type="text" class="form-control" name="hsc_board[]"
-                                value="{{ $educate->hsc_board }}" id="hsc_board" placeholder="HSC Board">
+                                value="{{ $educate->hsc_board }}" placeholder="HSC Board">
                         </div>
                         <div class="form-group">
-                            <label for="hsc_result">HSC Rusult</label>
+                            <label>HSC Result</label>
                             <input type="text" class="form-control" name="hsc_result[]"
-                                value="{{ $educate->hsc_result }}" id="hsc_result" placeholder="HSC Rusult">
+                                value="{{ $educate->hsc_result }}" placeholder="HSC Result">
                         </div>
                     @endforeach
+
+                    <!-- Course -->
                     <div class="form-group">
-                        <label for="course">Course</label>
-                        <select class="form-select" name="course" id="course">
-                            <option value="Web Development" @if ($students->course == 'Web Development') selected @endif>Web Development</option>
+                        <label for="course_id">Course</label>
+                        <select class="form-select" name="course_id" id="course_id">
+                            <option value="">--Select Course--</option>
+                            @foreach ($courses as $course)
+                                <option value="{{ $course->id }}" @if ($students->course_id == $course->id) selected @endif>
+                                    {{ $course->name }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
+
+
+                    <!-- Address -->
                     <div class="form-group">
                         <label for="present_address">Present Address</label>
                         <textarea class="form-control" name="present_address" id="present_address" rows="4">{{ $students->present_address }}</textarea>
@@ -115,16 +146,22 @@
                         <label for="permanent_address">Permanent Address</label>
                         <textarea class="form-control" name="permanent_address" id="permanent_address" rows="4">{{ $students->permanent_address }}</textarea>
                     </div>
+
+                    <!-- Image Upload -->
                     <div class="form-group">
                         <label>File upload</label>
                         <input type="file" name="image" class="form-control">
-                        <div class="mt-2">
-                            <img src="{{ asset('backend/images/students/'.$students->image)}}" alt="Student Image"
-                                height="100" width="100">
-                        </div>
+                        @if ($students->image)
+                            <div class="mt-2">
+                                <img src="{{ asset('backend/images/students/' . $students->image) }}" alt="Student Image"
+                                    height="100" width="100">
+                            </div>
+                        @endif
                     </div>
+
+                    <!-- Buttons -->
                     <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <a href="{{ url('/admin/student/list') }}" class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>

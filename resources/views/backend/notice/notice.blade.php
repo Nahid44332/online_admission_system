@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('content')
-<div class="container-fluid px-3"> {{-- ✅ সঠিক container যোগ করা হলো --}}
+<div class="container-fluid px-3">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3>All Notices</h3>
         <a href="{{url('/admin/notice/create')}}" class="btn btn-primary">

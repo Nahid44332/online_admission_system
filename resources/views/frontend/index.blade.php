@@ -314,51 +314,23 @@
                 </div>
             </div> <!-- row -->
             <div class="row testimonial-slied mt-40">
-                <div class="col-lg-6">
+               @foreach ($testimonials as $testimonial)
+                    <div class="col-lg-6">
                     <div class="singel-testimonial">
                         <div class="testimonial-thum">
-                            <img src="{{asset('frontend/images/testimonial/t-1.jpg')}}" alt="Testimonial">
+                            <img src="{{asset('backend/images/testimonial/'.$testimonial->image)}}" alt="Testimonial" height="100" width="100">
                             <div class="quote">
                                 <i class="fa fa-quote-right"></i>
                             </div>
                         </div>
                         <div class="testimonial-cont">
-                            <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet sem nibh id elit sollicitudirem </p>
-                            <h6>Rubina Helen</h6>
-                            <span>Bsc, Engineering</span>
+                            <p>{{$testimonial->message}}</p>
+                            <h6>{{$testimonial->name}}</h6>
+                            <span>{{$testimonial->designation}}</span>
                         </div>
                     </div> <!-- singel testimonial -->
                 </div>
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <img src="{{asset('frontend/images/testimonial/t-2.jpg')}}" alt="Testimonial">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet sem nibh id elit sollicitudirem </p>
-                            <h6>Rubina Helen</h6>
-                            <span>Bsc, Engineering</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
-                </div>
-                <div class="col-lg-6">
-                    <div class="singel-testimonial">
-                        <div class="testimonial-thum">
-                            <img src="{{asset('frontend/images/testimonial/t-3.jpg')}}" alt="Testimonial">
-                            <div class="quote">
-                                <i class="fa fa-quote-right"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-cont">
-                            <p>Aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet sem nibh id elit sollicitudirem </p>
-                            <h6>Rubina Helen</h6>
-                            <span>Bsc, Engineering</span>
-                        </div>
-                    </div> <!-- singel testimonial -->
-                </div>
+               @endforeach
             </div> <!-- testimonial slied -->
         </div> <!-- container -->
     </section>

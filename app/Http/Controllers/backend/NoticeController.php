@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Notice;
 use Illuminate\Http\Request;
 use Yoeunes\Toastr\Facades\Toastr;
-use Yoeunes\Toastr\Toastr as ToastrToastr;
 
 class NoticeController extends Controller
 {
