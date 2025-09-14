@@ -124,18 +124,18 @@
                     @endforeach
 
                     <!-- Course -->
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="course_id">Course</label>
-                        <select class="form-select" name="course_id" id="course_id">
+                        <select class="form-select" name="course_id" id="course_id" required>
                             <option value="">--Select Course--</option>
                             @foreach ($courses as $course)
-                                <option value="{{ $course->id }}" @if ($students->course_id == $course->id) selected @endif>
-                                    {{ $course->name }}
+                                <option value="{{ $course->id }}"
+                                    {{ $students->course_id == $course->id ? 'selected' : '' }}>
+                                    {{ $course->title }}
                                 </option>
                             @endforeach
                         </select>
                     </div>
-
 
                     <!-- Address -->
                     <div class="form-group">

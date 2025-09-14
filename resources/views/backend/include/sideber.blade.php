@@ -129,23 +129,23 @@
             </a>
             <div class="collapse" id="report-menu">
                 <ul class="nav flex-column sub-menu">
-                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/reports')}}">All Reports</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/admin/reports') }}">All Reports</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/reports/students')}}">Students Reports</a>
+                        <a class="nav-link" href="{{ url('/admin/reports/students') }}">Students Reports</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/reports/teachers')}}">Teacers Reports</a>
+                        <a class="nav-link" href="{{ url('/admin/reports/teachers') }}">Teacers Reports</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/reports/courses')}}">Course Reports</a>
+                        <a class="nav-link" href="{{ url('/admin/reports/courses') }}">Course Reports</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/reports/payments')}}">Payment Reports</a>
+                        <a class="nav-link" href="{{ url('/admin/reports/payments') }}">Payment Reports</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/reports/certificates')}}">Certificate Reports</a>
+                        <a class="nav-link" href="{{ url('/admin/reports/certificates') }}">Certificate Reports</a>
                     </li>
                 </ul>
             </div>
@@ -153,7 +153,7 @@
 
         <!-- Notice -->
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/admin/notice')}}">
+            <a class="nav-link" href="{{ url('/admin/notice') }}">
                 <span class="menu-title">Notice</span>
                 <i class="mdi mdi-bulletin-board menu-icon"></i>
             </a>
@@ -169,10 +169,30 @@
 
         <!-- Contact -->
         <li class="nav-item">
-            <a class="nav-link" href="{{url('/admin/testimonial')}}">
+            <a class="nav-link" href="{{ url('/admin/testimonial') }}">
                 <span class="menu-title">Testimonial</span>
                 <i class="mdi mdi-comment menu-icon"></i>
             </a>
+        </li>
+
+        <!-- Settings Dropdown -->
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#settings" aria-expanded="false"
+                aria-controls="settings">
+                <span class="menu-title">Settings</span>
+                <i class="menu-arrow"></i>
+                 <i class="mdi mdi-cog menu-icon"></i>
+            </a>
+            <div class="collapse" id="settings">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/about-us')}}">
+                            <span class="menu-title">About Us</span>
+                            <i class="mdi mdi-information-outline menu-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
     </ul>
 </nav>

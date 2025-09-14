@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutUs;
 use App\Models\Certificate;
 use App\Models\Contact;
 use App\Models\Course;
@@ -26,7 +27,8 @@ class FrontendController extends Controller
 
     public function aboutUs()
     {
-        return view('frontend.about-us');
+        $aboutus = AboutUs::first();
+        return view('frontend.about-us', compact('aboutus'));
     }
 
     public function courses()
@@ -88,7 +90,7 @@ class FrontendController extends Controller
         $contactUs->message = $request->message;
 
         $contactUs->save();
-        Toastr()->success('Your Messege Send Successfully.');
+        toastr()->success('Your Messege Send Successfully.');
         return redirect()->back();
     }
 

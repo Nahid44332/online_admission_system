@@ -34,7 +34,7 @@
                             <h2>Keep in touch</h2>
                         </div> <!-- section title -->
                         <div class="main-form pt-45">
-                            <form id="contact-form" action="{{url('/contact-us/store')}}" method="POST" data-toggle="validator">
+                            <form id="contact-form" action="{{url('/contact-us/store')}}" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">

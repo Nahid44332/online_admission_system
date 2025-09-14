@@ -145,3 +145,7 @@ Route::post('/admin/testimonial/store', [TestimonialController::class, 'testimon
 Route::get('/admin/testimonial/delete/{id}', [TestimonialController::class, 'testimonialDelete']);
 Route::get('/admin/testimonial/edit/{id}', [TestimonialController::class, 'testimonialEdit']);
 Route::post('/admin/testimonial/update/{id}', [TestimonialController::class, 'testimonialUpdate']);
+
+//About Us
+Route::get('/admin/about-us', [adminController::class, 'aboutUs']);
+Route::post('/admin/about-us/update/{id}', [adminController::class, 'aboutUsUpdate']);

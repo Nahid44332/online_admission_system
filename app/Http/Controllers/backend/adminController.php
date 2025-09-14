@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutUs;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Education;
@@ -148,6 +149,44 @@ class adminController extends Controller
 
         $contact->delete();
         Toastr()->success('Contact message deleted successfully!');
+        return redirect()->back();
+    }
+
+    //about us
+    public function aboutUs()
+    {
+        $aboutus = AboutUs::first();
+        return view('backend.about-us.about-us', compact('aboutus'));
+    }
+    
+    public function aboutUsUpdate(Request $request)
+    {
+        $aboutus = AboutUs::first();
+       
+        $aboutus->title = $request->title;
+        $aboutus->description = $request->description;
+        $aboutus->choose_description = $request->choose_description;
+        $aboutus->choose_title = $request->choose_title;
+        $aboutus->choose_description = $request->choose_description;
+        $aboutus->mission_title = $request->mission_title;
+        $aboutus->mission_description = $request->mission_description;
+        $aboutus->vision_title = $request->vision_title;
+        $aboutus->vision_description = $request->vision_description;
+
+        if(isset($request->image)){
+
+            if($aboutus->image && file_exists('backend/images/aboutus/'.$aboutus->image)){
+                unlink('backend/images/aboutus/'.$aboutus->image);
+            }
+
+            $imageName = rand().'-teacher'.'.'.$request->image->extension();
+            $request->image->move('backend/images/aboutus/', $imageName);
+
+            $aboutus->image = $imageName;
+        }
+
+        $aboutus->save();
+        Toastr()->success('About Updated Successfully.');
         return redirect()->back();
     }
 }
