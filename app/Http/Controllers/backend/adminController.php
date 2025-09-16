@@ -179,7 +179,7 @@ class adminController extends Controller
                 unlink('backend/images/aboutus/'.$aboutus->image);
             }
 
-            $imageName = rand().'-teacher'.'.'.$request->image->extension();
+            $imageName = rand().'-aboutus'.'.'.$request->image->extension();
             $request->image->move('backend/images/aboutus/', $imageName);
 
             $aboutus->image = $imageName;

@@ -11,9 +11,11 @@ use App\Models\Notice;
 use App\Models\Result;
 use App\Models\Student;
 use App\Models\Teacher;
+use App\Models\TeacherApplication;
 use App\Models\Testimonial;
-use Illuminate\Http\Request; // ✅ Laravel এর Request
+use Illuminate\Http\Request;
 use Yoeunes\Toastr\Facades\Toastr;
+use Illuminate\Support\Str;
 
 class FrontendController extends Controller
 {
@@ -44,6 +46,78 @@ class FrontendController extends Controller
         $teachers = Teacher::get();
         return view('frontend.teachers', compact('teachers'));
     }
+
+    public function teacherApplication()
+    {
+        return  view('frontend.teacher-application');
+    }
+
+    public function teacherApplicationStore(Request $request)
+    {
+        $teacherapplication = new TeacherApplication();
+
+        $teacherapplication->name = $request->name;
+        $teacherapplication->email = $request->email;
+        $teacherapplication->phone = $request->phone;
+        $teacherapplication->address = $request->address;
+        $teacherapplication->qualification = $request->qualification;
+        $teacherapplication->skills = $request->skills;
+        $teacherapplication->experience = $request->experience;
+        $teacherapplication->cover_letter = $request->cover_letter;
+
+        // Image Upload
+        if (isset($request->image)) {
+            $imageName = rand() . '-applicate' . '.' . $request->image->extension();
+            $request->image->move('backend/images/applicatecendidate/', $imageName);
+            $teacherapplication->image = $imageName;
+        }
+
+        // CV Upload
+        if (isset($request->cv)) {
+            $fileName = rand() . '-cv' . '.' . $request->cv->extension();
+            $request->cv->move('backend/file/cv/', $fileName);
+            $teacherapplication->cv = $fileName;
+        }
+
+        // প্রথমে সেভ করে ID জেনারেট করি
+        $teacherapplication->save();
+
+        // Application ID তৈরি করি
+        $application_id = 'TAC-' . str_pad($teacherapplication->id, 4, '0', STR_PAD_LEFT);
+        $teacherapplication->application_id = $application_id;
+        $teacherapplication->save();
+
+        Toastr()->success('Your Application Submitted. Your Application ID:' . $application_id);
+        return redirect()->route('frontend.application.success', ['application_id' => $application_id]);
+    }
+
+    public function teacherApplicationSuccess($application_id)
+    {
+        return view('frontend.application-success', compact('application_id'));
+    }
+
+    // Show form
+    public function showApplicationStatusForm()
+    {
+        return view('frontend.teacher-application-status');
+    }
+
+    // Check status
+    public function checkApplicationStatus(Request $request)
+    {
+        $request->validate([
+            'application_id' => 'required|string',
+        ]);
+
+        $application = TeacherApplication::where('application_id', $request->application_id)->first();
+
+        if ($application) {
+            return view('frontend.teacher-application-status', compact('application'));
+        } else {
+            return redirect()->back()->with('error', 'Application ID not found!');
+        }
+    }
+
 
     public function teacherInfo($id)
     {
@@ -174,21 +248,20 @@ class FrontendController extends Controller
             return view('frontend.certificate-status', [
                 'message' => "আপনার সার্টিফিকেট এখনও জেনারেট হয়নি।"
             ]);
-        } 
+        }
     }
 
     // Notice section
 
     public function notice()
     {
-         $notices = Notice::where('status', 1)->orderBy('created_at', 'desc')->get();
+        $notices = Notice::where('status', 1)->orderBy('created_at', 'desc')->get();
         return view('frontend.notice', compact('notices'));
     }
 
     public function show($id)
-{
-    $notice = Notice::where('status', 1)->find($id);
-    return view('frontend.show-notice', compact('notice'));
-}
-
+    {
+        $notice = Notice::where('status', 1)->find($id);
+        return view('frontend.show-notice', compact('notice'));
+    }
 }

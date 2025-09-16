@@ -13,6 +13,7 @@ use App\Http\Controllers\backend\resultController;
 use App\Http\Controllers\backend\teachersController;
 use App\Http\Controllers\backend\TestimonialController;
 use App\Http\Controllers\FrontendController;
+use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,11 +28,18 @@ Route::get('/about-us', [FrontendController::class, 'aboutUs']);
 Route::get('/courses', [FrontendController::class, 'courses']);
 Route::get('/teachers', [FrontendController::class, 'teachers']);
 Route::get('/teacher-info/{id}', [FrontendController::class, 'teacherInfo']);
+Route::get('/teacer/application', [FrontendController::class, 'teacherApplication']);
+Route::post('/teacer/application/store', [FrontendController::class, 'teacherApplicationStore']);
 Route::get('/contact-us', [FrontendController::class, 'contactUs']);
 Route::post('/contact-us/store', [FrontendController::class, 'contactUsStore']);
 Route::get('/course-details/{id}', [FrontendController::class, 'courseDetails']);
 Route::get('/admission', [FrontendController::class, 'admission']);
 Route::post('/admission/store', [FrontendController::class, 'admissionStore']);
+
+// Teacher Applicate Status
+Route::get('/teacher/application/success/{application_id}', [FrontendController::class, 'teacherApplicationSuccess']) ->name('frontend.application.success');
+Route::get('/teacher/application/status', [FrontendController::class, 'showApplicationStatusForm'])->name('teacher.application.status.form');
+Route::post('/teacher/application/status', [FrontendController::class, 'checkApplicationStatus'])->name('teacher.application.status.check');
 
 // Student Result 
 Route::get('/student-result', [FrontendController::class, 'studentResult']);
@@ -69,7 +77,15 @@ Route::get('/admin/teacher/delete/{id}', [teachersController::class, 'teacherDel
 Route::get('/admin/teacher/edit/{id}', [teachersController::class, 'teacherEdit']);
 Route::post('/admin/teacher/update/{id}', [teachersController::class, 'updateTeacher']);
 Route::get('/admin/teacher/assign-course/{id}', [teachersController::class, 'assignCourse']);
-Route::post('/admin/teacher/assign-course/store', [TeachersController::class, 'storeAssignCourse']);
+Route::post('/admin/teacher/assign-course/store', [teachersController::class, 'storeAssignCourse']);
+
+//Teacher Apply
+Route::get('/admin/teacher/cendidate', [teachersController::class, 'teacherCendidate']);
+Route::get('teacher-applications/show/{id}', [teachersController::class, 'show']);
+Route::get('/teacher-applications/{id}/approve', [teachersController::class, 'approve']);
+Route::get('/teacher-applications/{id}/reject', [teachersController::class, 'reject']);
+Route::get('/teacher-applications/delete/{id}', [teachersController::class, 'deleteApplicate']);
+
 
 
 //Course

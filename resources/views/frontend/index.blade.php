@@ -189,7 +189,7 @@
                         <div class="apply-cont apply-color-2">
                             <h3>Apply for intership</h3>
                             <p>Gravida nibh vel velit auctor aliquetn sollicitudirem sem quibibendum auci elit cons equat ipsutis sem nibh id elituis sed odio sit amet nibh vulputate cursus equat ipsutis.</p>
-                            <a href="{{url('/admission')}}" class="main-btn">Apply Now</a>
+                            <a href="{{url('/teacer/application')}}" class="main-btn">Apply Now</a>
                         </div> <!-- apply cont -->
                     </div> 
                 </div>

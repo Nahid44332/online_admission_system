@@ -55,6 +55,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/admin/teacher/add') }}">Add Teacher</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/teacher/cendidate')}}">Teacher Cendidate</a>
+                    </li>
                 </ul>
             </div>
         </li>

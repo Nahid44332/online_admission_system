@@ -22,15 +22,17 @@
                                 <h6>Sitemap</h6>
                             </div>
                             <ul>
-                                <li><a href="index-2.html"><i class="fa fa-angle-right"></i>Home</a></li>
-                                <li><a href="about.html"><i class="fa fa-angle-right"></i>About us</a></li>
-                                <li><a href="courses.html"><i class="fa fa-angle-right"></i>Courses</a></li>
-                                <li><a href="blog.html"><i class="fa fa-angle-right"></i>News</a></li>
+                                <li><a href="{{url('/')}}"><i class="fa fa-angle-right"></i>Home</a></li>
+                                <li><a href="{{url('/about-us')}}"><i class="fa fa-angle-right"></i>About us</a></li>
+                                <li><a href="{{url('/courses')}}"><i class="fa fa-angle-right"></i>Courses</a></li>
+                                 <li><a href="{{url('/teachers')}}"><i class="fa fa-angle-right"></i>Teachers</a></li>    
                             </ul>
                             <ul>
-                                <li><a href="teachers.html"><i class="fa fa-angle-right"></i>Teachers</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
-                                <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact</a></li>
+                                <li><a href="{{url('/student-result')}}"><i class="fa fa-angle-right"></i>Student Result</a></li>
+                                 <li><a href="{{url('/certificate/check')}}"><i class="fa fa-angle-right"></i>Check Certificate</a></li>
+                                 <li><a href="{{url('/teacher/application/status')}}"><i class="fa fa-angle-right"></i>Teacher Application Status</a></li>
+                                 <li><a href="{{url('/notice')}}"><i class="fa fa-angle-right"></i>Notice</a></li>
+                                <li><a href="{{url('/contact-us')}}"><i class="fa fa-angle-right"></i>Contact</a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
