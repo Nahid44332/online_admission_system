@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\NoticeController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\resultController;
+use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\backend\teachersController;
 use App\Http\Controllers\backend\TestimonialController;
 use App\Http\Controllers\FrontendController;
@@ -52,6 +53,12 @@ Route::post('/certificate/check', [FrontendController::class, 'checkStatus']);
 // Notice
 Route::get('/notice', [FrontendController::class, 'notice']);
 Route::get('/notice/{id}', [FrontendController::class, 'show']);
+
+//Policy
+Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy']);
+Route::get('/trams-condiotion', [FrontendController::class, 'tramsCondition']);
+Route::get('/admission-policy', [FrontendController::class, 'admissionPolicy']);
+Route::get('/payment-policy', [FrontendController::class, 'paymentPolicy']);
 
 
 // Auth Route
@@ -165,3 +172,7 @@ Route::post('/admin/testimonial/update/{id}', [TestimonialController::class, 'te
 //About Us
 Route::get('/admin/about-us', [adminController::class, 'aboutUs']);
 Route::post('/admin/about-us/update/{id}', [adminController::class, 'aboutUsUpdate']);
+
+//Site Setting
+Route::get('/admin/site-seeting', [SettingController::class, 'siteSetting']);
+Route::post('/admin/site-seeting/update', [SettingController::class, 'siteSettingUpdate']);

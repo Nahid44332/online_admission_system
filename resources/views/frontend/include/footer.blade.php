@@ -1,18 +1,18 @@
- <footer id="footer-part">
+<footer id="footer-part">
         <div class="footer-top pt-40 pb-70">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-about mt-40">
                             <div class="logo">
-                                <a href="#"><img src="{{asset('frontend/images/logo-2.png')}}" alt="Logo"></a>
+                                <a href="#"><img src="{{ asset('backend/images/seetings/'.$sitesettings->logo) }}" alt="Logo"></a>
                             </div>
-                            <p>Gravida nibh vel velit auctor aliquetn quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
+                            <p>{{$sitesettings->site_description}}</p>
                             <ul class="mt-20">
-                                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="{{$sitesettings->facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="{{$sitesettings->twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{$sitesettings->google}}" target="_blank"><i class="fa fa-google"></i></a></li>
+                                <li><a href="{{$sitesettings->instagram}}" target="_blank"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div> <!-- footer about -->
                     </div>
@@ -42,10 +42,10 @@
                                 <h6>Support</h6>
                             </div>
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>FAQS</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Privacy & Policy</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Tram & Condition</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
+                                <li><a href="{{url('/privacy-policy')}}"><i class="fa fa-angle-right"></i>Privacy & Policy</a></li>
+                                <li><a href="{{url('/trams-condiotion')}}"><i class="fa fa-angle-right"></i>Trams & Condition</a></li>
+                                <li><a href="{{url('/admission-policy')}}"><i class="fa fa-angle-right"></i>Addmission Policy</a></li>
+                                <li><a href="{{url('/payment-policy')}}"><i class="fa fa-angle-right"></i>Payment Policy</a></li>
                             </ul>
                         </div> <!-- support -->
                     </div>
@@ -60,7 +60,7 @@
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>{{$sitesettings->address}}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -68,7 +68,7 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>+3 123 456 789</p>
+                                        <p>{{$sitesettings->phone}}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -76,7 +76,7 @@
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
+                                        <p>{{$sitesettings->email}}</p>
                                     </div>
                                 </li>
                             </ul>

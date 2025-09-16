@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Education;
 use App\Models\Notice;
+use App\Models\Policy;
 use App\Models\Result;
 use App\Models\Student;
 use App\Models\Teacher;
@@ -263,5 +264,29 @@ class FrontendController extends Controller
     {
         $notice = Notice::where('status', 1)->find($id);
         return view('frontend.show-notice', compact('notice'));
+    }
+
+    public function privacyPolicy()
+    {
+        $privacyPolicy = Policy::select('privacy_policy')->first();
+        return view('frontend.privacy-policy', compact('privacyPolicy'));
+    }
+
+    public function tramsCondition()
+    {
+        $privacyPolicy = Policy::select('trams_condition')->first();
+        return view('frontend.trams-Condition', compact('privacyPolicy'));
+    }
+
+    public function admissionPolicy()
+    {
+        $privacyPolicy = Policy::select('admission_policy')->first();
+        return view('frontend.admission-policy', compact('privacyPolicy'));
+    }
+
+    public function paymentPolicy()
+    {
+        $privacyPolicy = Policy::select('payment_policy')->first();
+        return view('frontend.payment-policy', compact('privacyPolicy'));
     }
 }

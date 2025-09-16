@@ -5,16 +5,15 @@
                    <div class="col-lg-6">
                        <div class="header-contact text-lg-left text-center">
                            <ul>
-                               <li><img src="{{ asset('frontend/images/all-icon/map.png') }}" alt="icon"><span>127/5
-                                       Mark street, New york</span></li>
+                               <li><img src="{{ asset('frontend/images/all-icon/map.png') }}" alt="icon"><span>{{$sitesettings->address}}</span></li>
                                <li><img src="{{ asset('frontend/images/all-icon/email.png') }}"
-                                       alt="icon"><span>info@yourmail.com</span></li>
+                                       alt="icon"><span>{{$sitesettings->email}}</span></li>
                            </ul>
                        </div>
                    </div>
                    <div class="col-lg-6">
                        <div class="header-opening-time text-lg-right text-center">
-                           <p>Opening Hours : Monday to Saturay - 8 Am to 5 Pm</p>
+                           <p>Opening Hours : {{$sitesettings->opening}}</p>
                        </div>
                    </div>
                </div> <!-- row -->
@@ -27,7 +26,7 @@
                    <div class="col-lg-4 col-md-4">
                        <div class="logo">
                            <a href="{{ url('/') }}">
-                               <img src="{{ asset('frontend/images/logo.png') }}" alt="Logo">
+                               <img src="{{ asset('backend/images/seetings/'.$sitesettings->logo) }}" alt="Logo">
                            </a>
                        </div>
                    </div>
@@ -39,7 +38,7 @@
                                </div>
                                <div class="cont">
                                    <p>Need Help? call us free</p>
-                                   <span>321 325 5678</span>
+                                   <span>{{$sitesettings->helpline}}</span>
                                </div>
                            </div>
                            <div class="button float-left">

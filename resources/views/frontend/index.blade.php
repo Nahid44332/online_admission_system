@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
                         <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">Choose the right theme for education</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">Donec vitae sapien ut libearo venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt  Sed fringilla mauri amet nibh.</p>
+                            <h1 data-animation="bounceInLeft" data-delay="1s">{{$sitesettings->sitename}}</h1>
+                            <p data-animation="fadeInUp" data-delay="1.3s">{{$sitesettings->site_description}}</p>
                             <ul>
                                 <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="{{url('/admission')}}">Get Started</a></li>
                             </ul>
@@ -24,8 +24,8 @@
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
                         <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">Choose the right theme for education</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">Donec vitae sapien ut libearo venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt  Sed fringilla mauri amet nibh.</p>
+                            <h1 data-animation="bounceInLeft" data-delay="1s">{{$sitesettings->sitename}}</h1>
+                            <p data-animation="fadeInUp" data-delay="1.3s">{{$sitesettings->site_description}}</p>
                             <ul>
                                 <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="{{url('/admission')}}">Get Started</a></li>
                             </ul>
@@ -40,8 +40,8 @@
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
                         <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">Choose the right theme for education</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">Donec vitae sapien ut libearo venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt  Sed fringilla mauri amet nibh.</p>
+                            <h1 data-animation="bounceInLeft" data-delay="1s">{{$sitesettings->sitename}}</h1>
+                            <p data-animation="fadeInUp" data-delay="1.3s">{{$sitesettings->site_description}}</p>
                             <ul>
                                 <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="{{url('/admission')}}">Get Started</a></li>
                             </ul>

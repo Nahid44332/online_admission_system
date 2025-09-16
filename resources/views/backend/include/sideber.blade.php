@@ -194,6 +194,12 @@
                             <i class="mdi mdi-information-outline menu-icon"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/site-seeting')}}">
+                            <span class="menu-title">Site Setting</span>
+                            <i class="mdi mdi-cogs menu-icon"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </li>
