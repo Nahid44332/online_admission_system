@@ -28,7 +28,7 @@ class FrontendController extends Controller
         $testimonials = Testimonial::get();
         $aboutus = AboutUs::first();
         $banners = Banner::get();
-        return view('frontend.index', compact('teachers', 'courses', 'testimonials', 'aboutus'));
+        return view('frontend.index', compact('teachers', 'courses', 'testimonials', 'aboutus', 'banners'));
     }
 
     public function aboutUs()

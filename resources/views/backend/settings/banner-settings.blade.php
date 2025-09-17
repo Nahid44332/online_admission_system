@@ -49,7 +49,7 @@
                                             <tr class="align-middle">
                                                 <td>{{ $loop->index + 1 }}</td>
                                                 <td>
-                                                    <img src="{{ asset('backend/images/banner/'.$banner->image) }}"
+                                                    <img src="{{ asset('backend/images/banner/'.$banner->image) }}" alt="banner_image"
                                                         height="200px" width="400px">
                                                 </td>
                                                 <td>

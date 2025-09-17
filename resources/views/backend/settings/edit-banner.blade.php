@@ -47,6 +47,7 @@
                     <!--begin::Footer-->
                     <div class="card-footer">
                       <button type="submit" class="btn btn-primary">Update</button>
+                      <a href="{{url('/admin/banner-settings')}}" class="btn btn-info">Back</a>
                     </div>
                     <!--end::Footer-->
                   </form>

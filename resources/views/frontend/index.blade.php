@@ -3,7 +3,8 @@
  <!--====== SLIDER PART START ======-->
     
     <section id="slider-part" class="slider-active">
-        <div class="single-slider bg_cover pt-150" style="background-image: url({{asset('frontend/images/slider/s-1.jpg')}})" data-overlay="4">
+       @foreach ($banners as $banner)
+            <div class="single-slider bg_cover pt-150" style="background-image: url({{asset('backend/images/banner/'.$banner->image)}})" data-overlay="4">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
@@ -18,38 +19,7 @@
                 </div> <!-- row -->
             </div> <!-- container -->
         </div> <!-- single slider -->
-        
-        <div class="single-slider bg_cover pt-150" style="background-image: url({{asset('frontend/images/slider/s-2.jpg')}})" data-overlay="4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-7 col-lg-9">
-                        <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">{{$sitesettings->sitename}}</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">{{$sitesettings->site_description}}</p>
-                            <ul>
-                                <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="{{url('/admission')}}">Get Started</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- single slider -->
-        
-        <div class="single-slider bg_cover pt-150" style="background-image: url({{asset('frontend/images/slider/s-3.jpg')}})" data-overlay="4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-7 col-lg-9">
-                        <div class="slider-cont">
-                            <h1 data-animation="bounceInLeft" data-delay="1s">{{$sitesettings->sitename}}</h1>
-                            <p data-animation="fadeInUp" data-delay="1.3s">{{$sitesettings->site_description}}</p>
-                            <ul>
-                                <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="{{url('/admission')}}">Get Started</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- single slider -->
+       @endforeach
     </section>
     
     <!--====== SLIDER PART ENDS ======-->
