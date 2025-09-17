@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\Banner;
 use App\Models\Certificate;
 use App\Models\Contact;
 use App\Models\Course;
@@ -26,6 +27,7 @@ class FrontendController extends Controller
         $courses = Course::with('Teacher')->get();
         $testimonials = Testimonial::get();
         $aboutus = AboutUs::first();
+        $banners = Banner::get();
         return view('frontend.index', compact('teachers', 'courses', 'testimonials', 'aboutus'));
     }
 

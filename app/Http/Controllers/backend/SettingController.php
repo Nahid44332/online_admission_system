@@ -4,6 +4,8 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
+use App\Models\Banner;
+use App\Models\Policy;
 use App\Models\Settings;
 use Illuminate\Http\Request;
 
@@ -31,13 +33,13 @@ class SettingController extends Controller
         $siteSettings->google = $request->google;
         $siteSettings->instagram = $request->instagram;
 
-          if(isset($request->logo)){
+        if (isset($request->logo)) {
 
-            if($siteSettings->logo && file_exists('backend/images/seetings/'.$siteSettings->logo)){
-                unlink('backend/images/seetings/'.$siteSettings->logo);
+            if ($siteSettings->logo && file_exists('backend/images/seetings/' . $siteSettings->logo)) {
+                unlink('backend/images/seetings/' . $siteSettings->logo);
             }
 
-            $imageName = rand().'-logo'.'.'.$request->logo->extension();
+            $imageName = rand() . '-logo' . '.' . $request->logo->extension();
             $request->logo->move('backend/images/seetings/', $imageName);
 
             $siteSettings->logo = $imageName;
@@ -48,17 +50,17 @@ class SettingController extends Controller
         return redirect()->back();
     }
 
-     //about us
+    //about us
     public function aboutUs()
     {
         $aboutus = AboutUs::first();
         return view('backend.about-us.about-us', compact('aboutus'));
     }
-    
+
     public function aboutUsUpdate(Request $request)
     {
         $aboutus = AboutUs::first();
-       
+
         $aboutus->title = $request->title;
         $aboutus->description = $request->description;
         $aboutus->choose_description = $request->choose_description;
@@ -69,13 +71,13 @@ class SettingController extends Controller
         $aboutus->vision_title = $request->vision_title;
         $aboutus->vision_description = $request->vision_description;
 
-        if(isset($request->image)){
+        if (isset($request->image)) {
 
-            if($aboutus->image && file_exists('backend/images/aboutus/'.$aboutus->image)){
-                unlink('backend/images/aboutus/'.$aboutus->image);
+            if ($aboutus->image && file_exists('backend/images/aboutus/' . $aboutus->image)) {
+                unlink('backend/images/aboutus/' . $aboutus->image);
             }
 
-            $imageName = rand().'-aboutus'.'.'.$request->image->extension();
+            $imageName = rand() . '-aboutus' . '.' . $request->image->extension();
             $request->image->move('backend/images/aboutus/', $imageName);
 
             $aboutus->image = $imageName;
@@ -88,6 +90,55 @@ class SettingController extends Controller
 
     public function policySetting()
     {
-        return view('backend.settings.policy-settings'); 
+        $policies = Policy::first();
+        return view('backend.settings.policy-settings', compact('policies'));
+    }
+
+    public function policySettingStore(Request $request)
+    {
+        $policies = Policy::first();
+
+        $policies->privacy_policy = $request->privacy_policy;
+        $policies->trams_condition = $request->trams_condition;
+        $policies->admission_policy = $request->admission_policy;
+        $policies->payment_policy = $request->payment_policy;
+
+        $policies->save();
+        toastr()->success('Policies Update Successfully.');
+        return redirect()->back();
+    }
+
+    //banner
+    public function bannerSetting()
+    {  
+        $banners = Banner::all();
+        return view('backend.settings.banner-settings', compact('banners'));
+    }
+
+    public function editBanner($id)
+    {
+        $banner = Banner::find($id);
+        return view('backend.settings.edit-banner', compact('banner'));
+    }
+
+    public function updateBanner(Request $request, $id)
+    {
+        $banner = Banner::find($id);
+
+         if(isset($request->image)){
+
+            if($banner->image && file_exists('backend/images/banner/'.$banner->image)){
+                unlink('backend/images/banner/'.$banner->image);
+            }
+
+            $imageName = rand().'-banner-'.'.'.$request->image->extension(); //12345-banner-.webp
+            $request->image->move('backend/images/banner/', $imageName);
+
+            $banner->image = $imageName;
+        }
+
+        $banner->save();
+        toastr()->success('Banner updated succeesfully!');
+        return redirect('/admin/banner-settings');
     }
 }

@@ -179,3 +179,9 @@ Route::post('/admin/site-seeting/update', [SettingController::class, 'siteSettin
 
 //Policy
 Route::get('/admin/policy-seeting', [SettingController::class, 'policySetting']);
+Route::post('/admin/policy-seeting/update', [SettingController::class, 'policySettingStore']);
+
+//Banners
+Route::get('/admin/banner-settings', [SettingController::class, 'bannerSetting']);
+Route::get('/admin/edit-banner/{id}', [SettingController::class, 'editBanner']);
+Route::post('/admin/update-banner/{id}', [SettingController::class, 'updateBanner']);

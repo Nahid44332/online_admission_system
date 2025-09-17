@@ -206,6 +206,12 @@
                             <i class="mdi mdi-cogs menu-icon"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/banner-settings')}}">
+                            <span class="menu-title">Banner Setting</span>
+                            <i class="mdi mdi-cogs menu-icon"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </li>
