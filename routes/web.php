@@ -170,9 +170,12 @@ Route::get('/admin/testimonial/edit/{id}', [TestimonialController::class, 'testi
 Route::post('/admin/testimonial/update/{id}', [TestimonialController::class, 'testimonialUpdate']);
 
 //About Us
-Route::get('/admin/about-us', [adminController::class, 'aboutUs']);
-Route::post('/admin/about-us/update/{id}', [adminController::class, 'aboutUsUpdate']);
+Route::get('/admin/about-us', [SettingController::class, 'aboutUs']);
+Route::post('/admin/about-us/update/{id}', [SettingController::class, 'aboutUsUpdate']);
 
 //Site Setting
 Route::get('/admin/site-seeting', [SettingController::class, 'siteSetting']);
 Route::post('/admin/site-seeting/update', [SettingController::class, 'siteSettingUpdate']);
+
+//Policy
+Route::get('/admin/policy-seeting', [SettingController::class, 'policySetting']);

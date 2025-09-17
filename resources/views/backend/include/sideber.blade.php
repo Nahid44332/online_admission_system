@@ -200,6 +200,12 @@
                             <i class="mdi mdi-cogs menu-icon"></i>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/policy-seeting')}}">
+                            <span class="menu-title">Policy Setting</span>
+                            <i class="mdi mdi-cogs menu-icon"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </li>

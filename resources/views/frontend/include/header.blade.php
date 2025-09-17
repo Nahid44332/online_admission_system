@@ -26,7 +26,7 @@
                    <div class="col-lg-4 col-md-4">
                        <div class="logo">
                            <a href="{{ url('/') }}">
-                               <img src="{{ asset('backend/images/seetings/'.$sitesettings->logo) }}" alt="Logo">
+                               <img src="{{ asset('backend/images/seetings/'.$sitesettings->logo) }}" alt="Logo" height="80" width="150">
                            </a>
                        </div>
                    </div>
