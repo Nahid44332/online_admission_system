@@ -84,16 +84,15 @@ class adminController extends Controller
         $student->present_address   = $request->present_address;
         $student->permanent_address = $request->permanent_address;
 
-        // Image আপডেট
         if ($request->hasFile('image')) {
             $image = $request->file('image');
 
-            // পুরানো ছবি ডিলিট
+            
             if ($student->image && file_exists(public_path('backend/images/students/' . $student->image))) {
                 unlink(public_path('backend/images/students/' . $student->image));
             }
 
-            // নতুন ইমেজ আপলোড
+        
             $imageName = rand() . '-student' . '.' . $image->extension();
             $image->move(public_path('backend/images/students/'), $imageName);
             $student->image = $imageName;

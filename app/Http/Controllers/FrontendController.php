@@ -8,6 +8,7 @@ use App\Models\Certificate;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Education;
+use App\Models\News;
 use App\Models\Notice;
 use App\Models\Policy;
 use App\Models\Result;
@@ -17,7 +18,6 @@ use App\Models\TeacherApplication;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Yoeunes\Toastr\Facades\Toastr;
-use Illuminate\Support\Str;
 
 class FrontendController extends Controller
 {
@@ -28,7 +28,8 @@ class FrontendController extends Controller
         $testimonials = Testimonial::get();
         $aboutus = AboutUs::first();
         $banners = Banner::get();
-        return view('frontend.index', compact('teachers', 'courses', 'testimonials', 'aboutus', 'banners'));
+        $newspaper = News::where('status', 1)->latest()->get();
+        return view('frontend.index', compact('teachers', 'courses', 'testimonials', 'aboutus', 'banners', 'newspaper'));
     }
 
     public function aboutUs()

@@ -170,11 +170,19 @@
             </a>
         </li>
 
-        <!-- Contact -->
+        <!-- Testimonial -->
         <li class="nav-item">
             <a class="nav-link" href="{{ url('/admin/testimonial') }}">
                 <span class="menu-title">Testimonial</span>
                 <i class="mdi mdi-comment menu-icon"></i>
+            </a>
+        </li>
+
+        <!-- News -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/admin/news')}}">
+                <span class="menu-title">News</span>
+                <i class="mdi mdi-newspaper menu-icon"></i>
             </a>
         </li>
 

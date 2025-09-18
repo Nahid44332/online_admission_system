@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\admitCardController;
 use App\Http\Controllers\backend\CertificateController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\ExamController;
+use App\Http\Controllers\backend\NewsController;
 use App\Http\Controllers\backend\NoticeController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\ReportController;
@@ -168,6 +169,15 @@ Route::post('/admin/testimonial/store', [TestimonialController::class, 'testimon
 Route::get('/admin/testimonial/delete/{id}', [TestimonialController::class, 'testimonialDelete']);
 Route::get('/admin/testimonial/edit/{id}', [TestimonialController::class, 'testimonialEdit']);
 Route::post('/admin/testimonial/update/{id}', [TestimonialController::class, 'testimonialUpdate']);
+
+//News
+Route::get('/admin/news', [NewsController::class, 'news']);
+Route::get('/admin/news/create', [NewsController::class, 'newsCreate']);
+Route::post('/admin/news/store', [NewsController::class, 'newsStore']);
+Route::post('/admin/news/status/{id}', [NewsController::class, 'changeStatus'])->name('news.status');
+Route::get('/admin/news/edit/{id}', [NewsController::class, 'newsEdit']);
+Route::post('/admin/news/update/{id}', [NewsController::class, 'newsUpdate']);
+Route::get('/admin/news/delete/{id}', [NewsController::class, 'newsDelete']);
 
 //About Us
 Route::get('/admin/about-us', [SettingController::class, 'aboutUs']);
