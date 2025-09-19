@@ -66,7 +66,7 @@ Route::get('/payment-policy', [FrontendController::class, 'paymentPolicy']);
 // Auth Route
 Route::get('/admin/login', [adminAuthController::class, 'adminLogin']);
 Route::get('/admin/logout', [adminAuthController::class, 'adminLogOut']);
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/admin/dashboard', [adminController::class, 'adminDashboard']);
 
