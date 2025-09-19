@@ -1,13 +1,13 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
+            <a href="{{url('/admin/profile')}}" class="nav-link">
                 <div class="nav-profile-image">
-                    <img src="{{ asset('backend/assets/images/faces/face1.jpg') }}" alt="profile" />
+                    <img src="{{ asset('backend/images/admin/'.$admin->image) }}" alt="profile" />
                     <span class="login-status online"></span>
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                    <span class="font-weight-bold mb-2">Nahid Hossen</span>
+                    <span class="font-weight-bold mb-2">{{$admin->name}}</span>
                     <span class="text-secondary text-small">Web Developer</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -217,6 +217,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/admin/banner-settings')}}">
                             <span class="menu-title">Banner Setting</span>
+                            <i class="mdi mdi-cogs menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/profile')}}">
+                            <span class="menu-title">Profile Setting</span>
                             <i class="mdi mdi-cogs menu-icon"></i>
                         </a>
                     </li>

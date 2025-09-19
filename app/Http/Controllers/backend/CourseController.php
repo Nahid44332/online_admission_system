@@ -78,7 +78,7 @@ class CourseController extends Controller
                 unlink('backend/images/courses/'.$course->thumbnail);
             }
 
-            $imageName = rand().'-teacher'.'.'.$request->thumbnail->extension(); //12345-teacher-.webp
+            $imageName = rand().'-course'.'.'.$request->thumbnail->extension();
             $request->thumbnail->move('backend/images/courses/', $imageName);
 
             $course->thumbnail = $imageName;

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminAuthController;
 use App\Http\Controllers\backend\adminController;
+use App\Http\Controllers\backend\AdminProfileController;
 use App\Http\Controllers\backend\admitCardController;
 use App\Http\Controllers\backend\CertificateController;
 use App\Http\Controllers\backend\CourseController;
@@ -195,3 +196,11 @@ Route::post('/admin/policy-seeting/update', [SettingController::class, 'policySe
 Route::get('/admin/banner-settings', [SettingController::class, 'bannerSetting']);
 Route::get('/admin/edit-banner/{id}', [SettingController::class, 'editBanner']);
 Route::post('/admin/update-banner/{id}', [SettingController::class, 'updateBanner']);
+
+//Admin Profile
+Route::get('/admin/profile', [AdminProfileController::class, 'profile']);
+Route::post('admin/profile/update', [AdminProfileController::class, 'profileUpdate']);
+
+// Admin Password
+Route::get('/admin/change-password', [AdminProfileController::class, 'changePassword']);
+Route::post('/admin/change-password', [AdminProfileController::class, 'updatePassword']);

@@ -53,7 +53,7 @@
 <body>
     <div class="certificate-card">
         <!-- Logo -->
-        <img src="{{ asset('backend/images/logo.png')}}" alt="Logo" class="logo">
+        <img src="{{ asset('backend/images/seetings/'.$sitesettings->logo) }}" alt="Logo" class="logo">
 
         <h1>Nahid Computer Training Center</h1>
         <p>Phone: 01968-400331 | Address: Kumun, Gazipur Sadar, Gazipur</p>
