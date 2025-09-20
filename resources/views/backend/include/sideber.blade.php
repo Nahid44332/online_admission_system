@@ -58,6 +58,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/admin/teacher/cendidate')}}">Teacher Cendidate</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/admin/teacher/featured')}}">Featured Teachers</a>
+                    </li>
                 </ul>
             </div>
         </li>
@@ -217,12 +220,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/admin/banner-settings')}}">
                             <span class="menu-title">Banner Setting</span>
-                            <i class="mdi mdi-cogs menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('/admin/profile')}}">
-                            <span class="menu-title">Profile Setting</span>
                             <i class="mdi mdi-cogs menu-icon"></i>
                         </a>
                     </li>

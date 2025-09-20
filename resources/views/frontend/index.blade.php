@@ -248,14 +248,10 @@
                 <div class="col-lg-5">
                     <div class="section-title mt-50">
                         <h5>Featured Teachers</h5>
-                        <h2>Meet Our teachers</h2>
+                        <h2>{{$teachereatured->feature_title}}</h2>
                     </div> <!-- section title -->
                     <div class="teachers-cont">
-                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons
-                            equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi
-                            accumsan ipsum velit. Nam nec tellus a odio tincidunt mauris. <br> <br> auci elit cons equat
-                            ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi
-                            accumsan ipsum velit. Nam nec tellus a odio tincidunt mauris</p>
+                        <p>{{$teachereatured->feature_description}}</p>
                         <a href="#" class="main-btn mt-55">Career with us</a>
                     </div> <!-- teachers cont -->
                 </div>

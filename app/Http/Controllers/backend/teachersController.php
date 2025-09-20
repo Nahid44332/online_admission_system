@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\Featured;
 use App\Models\Teacher;
 use App\Models\TeacherApplication;
 use Illuminate\Http\Request;
@@ -217,6 +218,24 @@ class teachersController extends Controller
             Toastr()->error('Application Not Found');
         }
 
+        return redirect()->back();
+    }
+
+    public function teacherFeatured()
+    {
+        $teachereatured = Featured::first();
+        return view('backend.teacher.teacher-featured', compact('teachereatured'));
+    }
+
+    public function teacherFeaturedUpdate(Request $request)
+    {
+        $teachereatured = Featured::first();
+
+        $teachereatured->feature_title = $request->feature_title;
+        $teachereatured->feature_description = $request->feature_description;
+
+        $teachereatured->save();
+        toastr()->success('Teacher Featured Updated Successfully.');
         return redirect()->back();
     }
 }

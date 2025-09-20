@@ -8,6 +8,7 @@ use App\Models\Certificate;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Education;
+use App\Models\Featured;
 use App\Models\News;
 use App\Models\Notice;
 use App\Models\Policy;
@@ -29,7 +30,8 @@ class FrontendController extends Controller
         $aboutus = AboutUs::first();
         $banners = Banner::get();
         $newspaper = News::where('status', 1)->latest()->get();
-        return view('frontend.index', compact('teachers', 'courses', 'testimonials', 'aboutus', 'banners', 'newspaper'));
+        $teachereatured = Featured::first();
+        return view('frontend.index', compact('teachers', 'courses', 'testimonials', 'aboutus', 'banners', 'newspaper', 'teachereatured'));
     }
 
     public function aboutUs()

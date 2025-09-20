@@ -87,6 +87,8 @@ Route::get('/admin/teacher/edit/{id}', [teachersController::class, 'teacherEdit'
 Route::post('/admin/teacher/update/{id}', [teachersController::class, 'updateTeacher']);
 Route::get('/admin/teacher/assign-course/{id}', [teachersController::class, 'assignCourse']);
 Route::post('/admin/teacher/assign-course/store', [teachersController::class, 'storeAssignCourse']);
+Route::get('/admin/teacher/featured', [teachersController::class, 'teacherFeatured']);
+Route::post('/admin/teacher/featured/update', [teachersController::class, 'teacherFeaturedUpdate']);
 
 //Teacher Apply
 Route::get('/admin/teacher/cendidate', [teachersController::class, 'teacherCendidate']);
@@ -94,8 +96,6 @@ Route::get('teacher-applications/show/{id}', [teachersController::class, 'show']
 Route::get('/teacher-applications/{id}/approve', [teachersController::class, 'approve']);
 Route::get('/teacher-applications/{id}/reject', [teachersController::class, 'reject']);
 Route::get('/teacher-applications/delete/{id}', [teachersController::class, 'deleteApplicate']);
-
-
 
 //Course
 Route::get('/admin/course', [CourseController::class, 'course']);
