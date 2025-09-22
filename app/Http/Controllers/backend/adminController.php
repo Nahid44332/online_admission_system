@@ -8,8 +8,9 @@ use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Education;
 use App\Models\Student;
+use App\Models\Teacher;
+use App\Models\Payment;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Return_;
 use Yoeunes\Toastr\Facades\Toastr;
 
 class adminController extends Controller
@@ -21,7 +22,21 @@ class adminController extends Controller
 
     public function adminDashboard()
     {
-        return view('backend.admin-dashboard');
+        $totalStudents = Student::count();
+        $totalTeachers = Teacher::count();
+        $totalCourses  = Course::count();
+        $totalPayments = Payment::sum('amount');
+        $recentStudents = Student::latest()->take(5)->get();
+        $activeStudents = Student::where('status', 1)->count();
+        $inactiveStudents = Student::where('status', 0)->count();
+ 
+    // চার্ট ডেটা
+    $chartData = [
+        'students' => $totalStudents,
+        'teachers' => $totalTeachers,
+        'courses'  => $totalCourses,
+    ];
+        return view('backend.admin-dashboard', compact('totalStudents','totalTeachers','totalCourses', 'totalPayments','recentStudents','activeStudents','inactiveStudents','chartData'));
     }
 
     public function studentList()

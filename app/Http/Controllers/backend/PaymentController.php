@@ -58,4 +58,13 @@ class PaymentController extends Controller
          $payment = Payment::with('student', 'course')->findOrFail($id);
         return view('backend.payment.payment-print', compact('payment'));
     }
+
+    public function paymentDelete($id)
+    {
+        $paymentDelete = Payment::find($id);
+
+        $paymentDelete->delete();
+        toastr()->success('Payment Delete Successfully.');
+        return redirect()->back();
+    }
 }

@@ -110,6 +110,7 @@ Route::get('/admin/payments/create/{student_id}', [PaymentController::class, 'cr
 Route::post('/admin/payments/store/{student_Id}', [PaymentController::class, 'paymentStore']);
 Route::get('/admin/payment/list', [PaymentController::class, 'paymentList']);
 Route::get('/payment/print/{id}', [PaymentController::class, 'paymentPrint']);
+Route::get('/payment/delete/{id}', [PaymentController::class, 'paymentDelete']);
 
 //contact Messege..
 Route::get('/admin/contact-us', [adminController::class, 'contactUs']);
