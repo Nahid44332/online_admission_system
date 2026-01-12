@@ -14,7 +14,7 @@ class Student extends Model
     // এক Student-এর অনেক Education
     public function education()
     {
-        return $this->hasMany(Education::class, 'student_id', 'id');
+        return $this->hasOne(Education::class, 'student_id', 'id');
     }
 
     public function course()
@@ -44,6 +44,11 @@ class Student extends Model
      public function results()
     {
         return $this->hasMany(Student::class, 'student_id', 'id');
+    }
+
+    public function lock()
+    {
+        return $this->hasOne(Lock::class, 'student_id');
     }
 }
 

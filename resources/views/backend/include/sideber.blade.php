@@ -165,6 +165,14 @@
             </a>
         </li>
 
+        <!-- Lock -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/admin/lock')}}">
+                <span class="menu-title">Lock</span>
+                <i class="mdi mdi-lock menu-icon"></i>
+            </a>
+        </li>
+
         <!-- Contact -->
         <li class="nav-item">
             <a class="nav-link" href="{{ url('/admin/contact-us') }}">

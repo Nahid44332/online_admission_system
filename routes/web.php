@@ -7,6 +7,7 @@ use App\Http\Controllers\backend\admitCardController;
 use App\Http\Controllers\backend\CertificateController;
 use App\Http\Controllers\backend\CourseController;
 use App\Http\Controllers\backend\ExamController;
+use App\Http\Controllers\backend\lockController;
 use App\Http\Controllers\backend\NewsController;
 use App\Http\Controllers\backend\NoticeController;
 use App\Http\Controllers\backend\PaymentController;
@@ -38,6 +39,7 @@ Route::post('/contact-us/store', [FrontendController::class, 'contactUsStore']);
 Route::get('/course-details/{id}', [FrontendController::class, 'courseDetails']);
 Route::get('/admission', [FrontendController::class, 'admission']);
 Route::post('/admission/store', [FrontendController::class, 'admissionStore']);
+Route::get('/admission/print/{id}', [FrontendController::class, 'print']);
 
 // Teacher Applicate Status
 Route::get('/teacher/application/success/{application_id}', [FrontendController::class, 'teacherApplicationSuccess']) ->name('frontend.application.success');
@@ -163,6 +165,11 @@ Route::post('/admin/notice/toggle-status/{id}', [NoticeController::class, 'toggl
 Route::get('/admin/notice/delete/{id}', [NoticeController::class, 'noticeDelete']);
 Route::get('/admin/notice/edit/{id}', [NoticeController::class, 'noticeEdit']);
 Route::post('/admin/notice/update/{id}', [NoticeController::class, 'noticeUpdate']);
+
+//Lock
+Route::get('/admin/lock', [lockController::class, 'studentLock']);
+Route::get('/admin/student-lock/{id}/lock', [lockController::class, 'lock'])->name('student.lock');
+Route::get('/admin/student-lock/{id}/unlock', [lockController::class, 'unlock'])->name('student.unlock');
 
 // Testimonial
 Route::get('/admin/testimonial', [TestimonialController::class, 'testimonial']);

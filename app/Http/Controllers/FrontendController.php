@@ -228,7 +228,19 @@ class FrontendController extends Controller
 
         $education->save();
         toastr()->success('You have been Ragistered Successfully!');
-        return redirect()->back();
+        return redirect('/admission/print/'.$student->id);
+    }
+
+    public function print($id)
+    {
+        $student = Student::with('education')->find($id);
+
+        // শুধু Print View দেখাতে চাইলে
+        return view('frontend.admission-print', compact('student'));
+
+        // যদি PDF দিতে চাস:
+        // $pdf = PDF::loadView('admission.print', compact('student'));
+        // return $pdf->download('application_copy.pdf');
     }
 
     public function checkForm()
