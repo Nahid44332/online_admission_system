@@ -67,4 +67,12 @@ class PaymentController extends Controller
         toastr()->success('Payment Delete Successfully.');
         return redirect()->back();
     }
+
+    public function studentPayments($id)
+{
+    $student = Student::with('payments.course')->findOrFail($id);
+
+    return response()->json($student);
+}
+
 }

@@ -113,6 +113,7 @@ Route::post('/admin/payments/store/{student_Id}', [PaymentController::class, 'pa
 Route::get('/admin/payment/list', [PaymentController::class, 'paymentList']);
 Route::get('/payment/print/{id}', [PaymentController::class, 'paymentPrint']);
 Route::get('/payment/delete/{id}', [PaymentController::class, 'paymentDelete']);
+Route::get('/student/payments/{id}', [PaymentController::class, 'studentPayments']);
 
 //contact Messege..
 Route::get('/admin/contact-us', [adminController::class, 'contactUs']);
